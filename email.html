@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Development Intensive - Summer 2025</title>
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+  <style>
+    /* Reset styles for email clients */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, table, td, p, a, li, blockquote {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    table, td {
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+
+    img {
+      -ms-interpolation-mode: bicubic;
+      border: 0;
+      height: auto;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+    }
+
+    /* Gmail-specific styles */
+    u + .body .gmail-fix {
+      display: none;
+    }
+
+    .gmail-fix {
+      display: none;
+      display: none !important;
+    }
+
+    [data-ogsc] .gmail-fix {
+      display: none !important;
+    }
+
+    /* Main email styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      line-height: 1.7;
+      background-color: #f8fafc;
+      color: #1a202c;
+      margin: 0;
+      padding: 0;
+      width: 100% !important;
+      min-width: 100%;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 16px;
+    }
+
+    .email-wrapper {
+      width: 100%;
+      background-color: #f8fafc;
+      padding: 20px 0;
+    }
+
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header styles */
+    .header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      padding: 40px 30px;
+      text-align: center;
+    }
+
+    .program-badge {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin: 0 0 15px 0;
+      line-height: 1.3;
+      color: #ffffff;
+    }
+
+    .header p {
+      font-size: 17px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    /* Content styles */
+    .content {
+      padding: 40px 30px;
+    }
+
+    .greeting {
+      font-size: 17px;
+      margin-bottom: 25px;
+      color: #2d3748;
+      font-weight: 500;
+    }
+
+    .main-text {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #2d3748;
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    .main-text strong {
+      color: #1a202c;
+      font-weight: 600;
+    }
+
+    /* Feature highlight */
+    .feature-highlight {
+      background-color: #f7fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #3b82f6;
+      padding: 25px;
+      margin: 25px 0;
+      border-radius: 8px;
+    }
+
+    .feature-highlight h3 {
+      color: #1a202c;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .feature-highlight p {
+      color: #2d3748;
+      line-height: 1.7;
+      margin: 0;
+      font-weight: 400;
+      font-size: 16px;
+    }
+
+    /* Stats section */
+    .stats-section {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 30px;
+      border-radius: 12px;
+      margin: 30px 0;
+      text-align: center;
+    }
+
+    .stats-grid {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .stat-item {
+      padding: 15px;
+      vertical-align: top;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: #4a5568;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Benefits section */
+    .benefits-section {
+      margin: 30px 0;
+      background-color: #f7fafc;
+      border: 1px solid #e2e8f0;
+      padding: 30px;
+      border-radius: 12px;
+    }
+
+    .benefits-title {
+      color: #1a202c;
+      font-size: 20px;
+      margin-bottom: 25px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .benefit-item {
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+    }
+
+    .benefit-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .benefit-number {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-color: #3b82f6;
+      color: #ffffff;
+      border-radius: 4px;
+      text-align: center;
+      line-height: 24px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-right: 12px;
+      vertical-align: top;
+    }
+
+    .benefit-text {
+      color: #2d3748;
+      font-size: 15px;
+      line-height: 1.6;
+      display: inline-block;
+      width: calc(100% - 40px);
+      vertical-align: top;
+      font-weight: 400;
+    }
+
+    /* Testimonial */
+    .testimonial {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      margin: 30px 0;
+    }
+
+    .testimonial-quote {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+      color: #ffffff;
+      font-weight: 400;
+    }
+
+    .author-info {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 20px;
+    }
+
+    .author-info h4 {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 5px;
+      color: #ffffff;
+    }
+
+    .author-info p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0;
+      font-weight: 400;
+    }
+
+    /* Urgency banner */
+    .urgency-banner {
+      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      margin: 25px 0;
+      border-radius: 8px;
+    }
+
+    .urgency-text {
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #ffffff;
+    }
+
+    /* CTA section */
+    .cta-section {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      padding: 40px 30px;
+      border-radius: 12px;
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .cta-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 15px;
+    }
+
+    .cta-subtitle {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 25px;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 15px 25px;
+      margin: 8px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      text-align: center;
+      min-width: 200px;
+      transition: all 0.2s ease;
+    }
+
+    .cta-primary {
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      color: #ffffff !important;
+    }
+
+    .cta-secondary {
+      background-color: transparent;
+      color: #ffffff !important;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+    }
+
+    /* Contact section */
+    .contact-section {
+      background-color: #f7fafc;
+      border: 1px solid #e2e8f0;
+      padding: 30px;
+      border-radius: 12px;
+      margin: 30px 0;
+    }
+
+    .contact-title {
+      color: #1a202c;
+      font-size: 20px;
+      margin-bottom: 25px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .contact-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .contact-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-card h4 {
+      color: #1a202c;
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .contact-card p {
+      color: #4a5568;
+      font-size: 14px;
+      margin: 0;
+      font-weight: 400;
+    }
+
+    /* Signature */
+    .signature {
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px solid #e2e8f0;
+      color: #4a5568;
+    }
+
+    .signature strong {
+      color: #1a202c;
+      font-weight: 600;
+    }
+
+    .ps-section {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border-left: 4px solid #f59e0b;
+      color: #92400e;
+      padding: 20px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 25px;
+    }
+
+    .ps-section p {
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 0;
+      font-weight: 400;
+    }
+
+    .ps-section strong {
+      font-weight: 600;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #0f172a;
+      padding: 30px;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .footer-name {
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .footer-title {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+
+    .footer-tagline {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.6);
+      font-style: italic;
+      margin: 0;
+      font-weight: 400;
+    }
+
+    /* Mobile responsiveness */
+    @media only screen and (max-width: 600px) {
+      .email-wrapper {
+        padding: 10px 0;
+      }
+      
+      .email-container {
+        border-radius: 0;
+        margin: 0 10px;
+      }
+
+      .header, .content, .footer {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .header h1 {
+        font-size: 24px;
+      }
+
+      .cta-title {
+        font-size: 20px;
+      }
+
+      .cta-button {
+        display: block;
+        margin: 10px 0;
+        min-width: auto;
+      }
+
+      .stat-item {
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .benefit-text {
+        width: calc(100% - 36px);
+      }
+    }
+
+    /* Improved Dark mode support */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #111827 !important;
+        color: #f9fafb !important;
+      }
+      
+      .email-wrapper {
+        background-color: #111827 !important;
+      }
+      
+      .email-container {
+        background-color: #1f2937 !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
+      }
+      
+      .content {
+        background-color: #1f2937 !important;
+      }
+      
+      .main-text, .greeting {
+        color: #e5e7eb !important;
+      }
+      
+      .main-text strong {
+        color: #f9fafb !important;
+      }
+      
+      .feature-highlight {
+        background-color: #374151 !important;
+        border-color: #4b5563 !important;
+      }
+      
+      .feature-highlight h3 {
+        color: #f9fafb !important;
+      }
+      
+      .feature-highlight p {
+        color: #d1d5db !important;
+      }
+      
+      .stats-section {
+        background-color: #374151 !important;
+        border-color: #4b5563 !important;
+      }
+      
+      .stat-number {
+        color: #f9fafb !important;
+      }
+      
+      .stat-label {
+        color: #9ca3af !important;
+      }
+      
+      .benefits-section {
+        background-color: #374151 !important;
+        border-color: #4b5563 !important;
+      }
+      
+      .benefits-title {
+        color: #f9fafb !important;
+      }
+      
+      .benefit-item {
+        background-color: #1f2937 !important;
+        border-color: #4b5563 !important;
+      }
+      
+      .benefit-text {
+        color: #d1d5db !important;
+      }
+      
+      .contact-section {
+        background-color: #374151 !important;
+        border-color: #4b5563 !important;
+      }
+      
+      .contact-title {
+        color: #f9fafb !important;
+      }
+      
+      .contact-card {
+        background-color: #1f2937 !important;
+        border-color: #4b5563 !important;
+      }
+      
+      .contact-card h4 {
+        color: #f9fafb !important;
+      }
+      
+      .contact-card p {
+        color: #9ca3af !important;
+      }
+      
+      .signature {
+        color: #9ca3af !important;
+        border-color: #4b5563 !important;
+      }
+      
+      .signature strong {
+        color: #f9fafb !important;
+      }
+    }
+
+    /* Outlook specific */
+    <!--[if mso]>
+    .email-container {
+      width: 600px !important;
+    }
+    <![endif]-->
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <div class="email-container">
+      
+      <div class="header">
+        <div class="program-badge">
+          ⚡ Summer Intensive 2025
+        </div>
+        <h1>Web Development Mastery</h1>
+        <p>Transform your career in 10 intensive weeks with industry-leading curriculum and personalized mentorship</p>
+      </div>
+
+      <div class="content">
+        <p class="greeting">Hello,</p>
+
+        <p class="main-text">
+          The digital landscape is evolving rapidly, and so should your career. Our intensive 10-week summer program is designed for ambitious professionals ready to master modern web development and secure positions with leading tech companies.
+        </p>
+
+        <div class="feature-highlight">
+          <h3>🎯 Industry-Aligned Excellence</h3>
+          <p>
+            Built in partnership with top-tier companies, our curriculum focuses on the exact skills and technologies that drive hiring decisions in today's competitive market. Every module is crafted to deliver immediate, practical value.
+          </p>
+        </div>
+
+        <div class="stats-section">
+          <table class="stats-grid" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td class="stat-item">
+                <span class="stat-number">250+</span>
+                <span class="stat-label">Alumni Placed</span>
+              </td>
+              <td class="stat-item">
+                <span class="stat-number">98%</span>
+                <span class="stat-label">Success Rate</span>
+              </td>
+              <td class="stat-item">
+                <span class="stat-number">₦1.2M</span>
+                <span class="stat-label">Average Salary</span>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="benefits-section">
+          <h4 class="benefits-title">Comprehensive Learning Experience</h4>
+          
+          <div class="benefit-item">
+            <span class="benefit-number">01</span>
+            <span class="benefit-text">Master React, Next.js, TypeScript, and modern development workflows</span>
+          </div>
+          
+          <div class="benefit-item">
+            <span class="benefit-number">02</span>
+            <span class="benefit-text">Build production-ready applications with real-world complexity</span>
+          </div>
+          
+          <div class="benefit-item">
+            <span class="benefit-number">03</span>
+            <span class="benefit-text">Advanced UI/UX design principles and design system implementation</span>
+          </div>
+          
+          <div class="benefit-item">
+            <span class="benefit-number">04</span>
+            <span class="benefit-text">1-on-1 mentorship with senior engineers from Fortune 500 companies</span>
+          </div>
+          
+          <div class="benefit-item">
+            <span class="benefit-number">05</span>
+            <span class="benefit-text">Direct placement pipeline with our partner companies</span>
+          </div>
+          
+          <div class="benefit-item">
+            <span class="benefit-number">06</span>
+            <span class="benefit-text">Freelance business development and client acquisition strategies</span>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <p class="testimonial-quote">
+            "This program exceeded every expectation. The curriculum is incredibly current, and Gabriel's mentorship was invaluable. I secured a senior developer role at a unicorn startup within 3 weeks of graduation."
+          </p>
+          <div class="author-info">
+            <h4>Adunni Okonkwo</h4>
+            <p>Senior Frontend Developer, Flutterwave</p>
+          </div>
+        </div>
+
+        <div class="urgency-banner">
+          <p class="urgency-text">Limited Enrollment • 18 Spots Remaining • Program Begins June 7th</p>
+        </div>
+
+        <div class="cta-section">
+          <h3 class="cta-title">Ready to Transform Your Career?</h3>
+          <p class="cta-subtitle">Join an exclusive cohort of driven professionals committed to excellence</p>
+          
+          <a href="https://wa.me/2347052971057?text=Hi%20Gabriel,%20I'm%20interested%20in%20enrolling%20in%20the%20summer%20intensive%20program" class="cta-button cta-primary">
+            🚀 Secure Your Spot
+          </a>
+          
+          <a href="https://wa.me/2347052971057?text=Hi%20Gabriel,%20I'd%20like%20to%20learn%20more%20about%20the%20curriculum%20and%20program%20details" class="cta-button cta-secondary">
+            📋 View Curriculum
+          </a>
+        </div>
+
+        <p class="main-text">
+          <strong>Need guidance?</strong> I'm offering complimentary 20-minute career strategy sessions to help you determine if this program aligns with your professional goals. These sessions fill quickly and are available on a first-come basis.
+        </p>
+
+        <div class="contact-section">
+          <h4 class="contact-title">Connect With Our Team</h4>
+          
+          <div class="contact-card">
+            <h4>📱 WhatsApp Direct</h4>
+            <p>+234 705 297 1057</p>
+          </div>
+          
+          <div class="contact-card">
+            <h4>📧 Email Support</h4>
+            <p>younganiel@gmail.com</p>
+          </div>
+        </div>
+
+        <div class="signature">
+          <p>Best regards,</p><br>
+          <p><strong>Gabriel Anie</strong><br>
+          <em>Lead Instructor & Senior Web Developer</em><br>
+          <em>Empowering the next generation of tech leaders</em></p>
+        </div>
+
+        <div class="ps-section">
+          <p><strong>P.S.</strong> The most successful professionals in tech share one common trait: they invest in continuous learning and take decisive action when opportunities arise. This summer intensive represents a pivotal moment for your career trajectory.</p>
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p class="footer-name">Gabriel Anie</p>
+        <p class="footer-title">Elite Web Development Instructor | Lagos, Nigeria</p>
+        <p class="footer-tagline">From Code to Career Excellence</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Gmail app fix -->
+  <div class="gmail-fix">&nbsp;</div>
+</body>
+</html>

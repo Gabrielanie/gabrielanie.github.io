@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Development Intensive - Summer 2025</title>
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+  <style>
+    /* Reset styles for email clients */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, table, td, p, a, li, blockquote {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    table, td {
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+      border-collapse: collapse !important;
+    }
+
+    img {
+      -ms-interpolation-mode: bicubic;
+      border: 0;
+      height: auto;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+    }
+
+    /* Main email styles */
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      line-height: 1.5;
+      background-color: #eeeeee;
+      color: #181c25;
+      margin: 0;
+      padding: 0;
+      width: 100% !important;
+      min-width: 100%;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .email-wrapper {
+      width: 100%;
+      background-color: #eeeeee;
+      padding: 10px 0 0;
+    }
+
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-collapse: collapse !important;
+    }
+
+    /* Header styles */
+    .header {
+      padding: 30px 30px 0;
+      text-align: center;
+      background-color: #ffffff;
+    }
+
+    .logo {
+      display: block;
+      max-width: 97px;
+      height: auto;
+    }
+
+    .main-heading {
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 32px;
+      line-height: 40px;
+      color: #181c25;
+      font-weight: 800;
+      margin: 0;
+      padding: 30px 45px;
+      background-color: #ffffff;
+      text-align: center;
+    }
+
+    /* Hero image */
+    .hero-image {
+      text-align: center;
+      background-color: #ffffff;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      display: block;
+    }
+
+    /* Content styles */
+    .content {
+      background-color: #ffffff;
+      padding: 20px 48px 10px;
+    }
+
+    .greeting {
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      color: #181c25;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    .main-text {
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      color: #181c25;
+      font-weight: 400;
+      margin: 0;
+      padding: 8px 48px;
+      background-color: #ffffff;
+    }
+
+    .main-text a {
+      color: #ff444f !important;
+      text-decoration: none;
+    }
+
+    /* Table styles */
+    .data-table {
+      width: 85%;
+      margin: 10px auto 0;
+      background-color: #ffffff;
+      border-collapse: collapse !important;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #ffffff;
+    }
+
+    .table-header {
+      background-color: #181c25;
+      color: #ffffff;
+    }
+
+    .table-header td {
+      padding: 10px;
+      border: 1px solid #ffffff;
+    }
+
+    .table-header strong {
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 400;
+      padding-left: 10px;
+    }
+
+    .table-row {
+      background-color: #f6f7f8;
+    }
+
+    .table-row td {
+      padding: 10px;
+      border: 1px solid #ffffff;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      color: #181c25;
+      font-weight: 400;
+    }
+
+    .table-cell-left {
+      padding-left: 15px;
+    }
+
+    /* CTA Button */
+    .cta-section {
+      text-align: center;
+      padding: 30px 0 20px;
+      background-color: #ffffff;
+    }
+
+    .cta-button {
+      background-color: #ff444f;
+      color: #ffffff !important;
+      display: inline-block;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 44px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 61px;
+      padding: 0 30px;
+      border: 0;
+    }
+
+    /* Support section */
+    .support-section {
+      background-color: #ffffff;
+      padding: 20px 48px 40px;
+      text-align: center;
+    }
+
+    .support-section p {
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      color: #181c25;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    .support-section a {
+      color: #ff444f !important;
+      text-decoration: none;
+    }
+
+    /* Awards section */
+    .awards-section {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 10px 0 20px;
+    }
+
+    .awards-section img {
+      width: 100%;
+      max-width: 504px;
+      display: block;
+      outline: none;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #ffffff;
+      padding: 30px 30px 0;
+      text-align: center;
+    }
+
+    .footer-logo {
+      display: block;
+      width: 193px;
+      opacity: 0.7;
+      margin: 0 auto;
+    }
+
+    .social-links {
+      padding: 20px 0 10px;
+      text-align: center;
+      word-spacing: 10px !important;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      color: #ff444f;
+      margin: 0 5px;
+    }
+
+    .social-links img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .legal-text {
+      color: #9498a2;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 18px;
+      padding: 4px 48px 10px;
+      text-align: left;
+      background-color: #ffffff;
+    }
+
+    .legal-text p {
+      margin: 0;
+    }
+
+    .footer-links {
+      text-align: center;
+      color: #9498a2;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 18px;
+      background-color: #ffffff;
+    }
+
+    .footer-links p {
+      margin: 5px 0;
+      padding: 0 10px;
+    }
+
+    .footer-links a {
+      color: #ff444f !important;
+      text-decoration: none;
+    }
+
+    .footer-links span {
+      color: #ff444f !important;
+      padding: 0 8px;
+    }
+
+    .unsubscribe-section {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 20px 30px;
+    }
+
+    .unsubscribe-section img {
+      width: 160px;
+      display: block;
+      outline: none;
+      margin: 0 auto;
+    }
+
+    /* Mobile responsiveness */
+    @media only screen and (max-width: 600px) {
+      .email-wrapper {
+        padding: 5px 0;
+      }
+      
+      .email-container {
+        margin: 0 10px;
+      }
+
+      .header,
+      .content,
+      .main-text,
+      .support-section,
+      .legal-text {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+      }
+
+      .main-heading {
+        font-size: 24px !important;
+        line-height: 32px !important;
+        padding: 20px !important;
+      }
+
+      .data-table {
+        width: 95%;
+      }
+
+      .hero-image {
+        display: none;
+      }
+
+      .mobile-hero {
+        display: block !important;
+        text-align: center;
+      }
+
+      .awards-section {
+        padding: 10px 20px 20px;
+      }
+    }
+
+    .mobile-hero {
+      display: none;
+    }
+
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #111827 !important;
+      }
+      
+      .email-wrapper {
+        background-color: #111827 !important;
+      }
+      
+      .email-container,
+      .header,
+      .content,
+      .main-text,
+      .cta-section,
+      .support-section,
+      .awards-section,
+      .footer,
+      .legal-text,
+      .footer-links,
+      .unsubscribe-section {
+        background-color: #1f2937 !important;
+      }
+      
+      .main-heading,
+      .greeting,
+      .main-text,
+      .support-section p {
+        color: #f9fafb !important;
+      }
+      
+      .table-row {
+        background-color: #374151 !important;
+      }
+      
+      .table-row td {
+        color: #f9fafb !important;
+      }
+    }
+
+    /* Outlook specific */
+    <!--[if mso]>
+    .email-container {
+      width: 600px !important;
+    }
+    <![endif]-->
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <table class="email-container" width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        <!-- Header with Logo -->
+        <tr>
+          <td class="header">
+            <a href="https://wa.me/2347052971057" style="color:#ff444f;text-decoration:none">
+              <img src="https://via.placeholder.com/97x40/ff444f/ffffff?text=LOGO" width="97" alt="Your Company" class="logo">
+            </a>
+          </td>
+        </tr>
+
+        <!-- Main Heading -->
+        <tr>
+          <td class="main-heading">
+            Web Development Intensive - Summer 2025
+          </td>
+        </tr>
+
+        <!-- Hero Image - Desktop -->
+        <tr class="hero-image">
+          <td align="center">
+            <img src="https://via.placeholder.com/600x300/3b82f6/ffffff?text=Hero+Image" width="600" height="auto" alt="Web Development Course">
+          </td>
+        </tr>
+
+        <!-- Hero Image - Mobile -->
+        <tr class="mobile-hero" style="display:none;">
+          <td align="center">
+            <img src="https://via.placeholder.com/600x300/3b82f6/ffffff?text=Mobile+Hero" width="100%" alt="Web Development Course">
+          </td>
+        </tr>
+
+        <!-- Greeting -->
+        <tr>
+          <td class="content">
+            <p class="greeting">Hi Gabriel,</p>
+          </td>
+        </tr>
+
+        <!-- Main Content -->
+        <tr>
+          <td class="main-text">
+            <p>Our intensive 10-week summer program is now open for enrollment. Transform your career with industry-leading curriculum and personalized mentorship.</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="main-text">
+            <p>This program features cutting-edge technologies and hands-on projects that prepare you for real-world development challenges.</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="main-text">
+            <p>Find more details about the program curriculum <a href="https://wa.me/2347052971057?text=Hi%20Gabriel,%20I'd%20like%20to%20learn%20more%20about%20the%20curriculum">here</a>.</p>
+          </td>
+        </tr>
+
+        <!-- Data Table -->
+        <tr>
+          <td align="center" style="background-color:#ffffff;">
+            <table class="data-table">
+              <tbody>
+                <tr class="table-header">
+                  <td style="border-radius:16px 0 0 0;" width="50%">
+                    <strong style="color:#ffffff;">Track</strong>
+                  </td>
+                  <td style="border-radius:0 16px 0 0;" width="50%">
+                    <strong style="color:#ffffff;">Duration</strong>
+                  </td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell-left">
+                    Frontend Development
+                  </td>
+                  <td style="padding-left:10px;">
+                    10 weeks
+                  </td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell-left">
+                    Backend Development
+                  </td>
+                  <td style="padding-left:10px;">
+                    10 weeks
+                  </td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell-left">
+                    Full Stack Development
+                  </td>
+                  <td style="padding-left:10px;">
+                    12 weeks
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Additional Content -->
+        <tr>
+          <td class="content">
+            <p class="greeting">Build your development skills and launch your tech career <br> with hands-on projects and expert guidance.</p>
+          </td>
+        </tr>
+
+        <!-- CTA Button -->
+        <tr>
+          <td class="cta-section">
+            <a href="https://wa.me/2347052971057?text=Hi%20Gabriel,%20I'm%20interested%20in%20enrolling%20in%20the%20summer%20intensive%20program" class="cta-button">
+              Enroll Now
+            </a>
+          </td>
+        </tr>
+
+        <!-- Support Section -->
+        <tr>
+          <td class="support-section">
+            <p>Need help? Our support team is available 24/7 <br>via 
+            <a href="https://wa.me/2347052971057">WhatsApp</a> and <a href="mailto:younganiel@gmail.com">Email</a></p>
+          </td>
+        </tr>
+
+        <!-- Awards Section -->
+        <tr class="awards-section">
+          <td align="center">
+            <img src="https://via.placeholder.com/504x100/f3f4f6/6b7280?text=Awards+%26+Recognition" width="504" alt="Awards and Recognition">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Footer -->
+    <table class="email-container" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;margin:0 auto;">
+      <tbody>
+        <!-- Footer Logo -->
+        <tr>
+          <td class="footer">
+            <a href="https://wa.me/2347052971057">
+              <img src="https://via.placeholder.com/193x60/9ca3af/ffffff?text=COMPANY" width="193" alt="Your Company" class="footer-logo">
+            </a>
+          </td>
+        </tr>
+
+        <!-- Social Links -->
+        <tr>
+          <td class="social-links">
+            <p>
+              <a href="#"><img src="https://via.placeholder.com/32x32/ff444f/ffffff?text=FB" width="32" height="32" alt="Facebook"></a>
+              <a href="#"><img src="https://via.placeholder.com/32x32/ff444f/ffffff?text=IG" width="32" height="32" alt="Instagram"></a>
+              <a href="#"><img src="https://via.placeholder.com/32x32/ff444f/ffffff?text=TW" width="32" height="32" alt="Twitter"></a>
+              <a href="#"><img src="https://via.placeholder.com/32x32/ff444f/ffffff?text=YT" width="32" height="32" alt="YouTube"></a>
+              <a href="#"><img src="https://via.placeholder.com/32x32/ff444f/ffffff?text=LI" width="32" height="32" alt="LinkedIn"></a>
+              <a href="#"><img src="https://via.placeholder.com/32x32/ff444f/ffffff?text=TG" width="32" height="32" alt="Telegram"></a>
+              <a href="#"><img src="https://via.placeholder.com/32x32/ff444f/ffffff?text=WA" width="32" height="32" alt="WhatsApp"></a>
+            </p>
+          </td>
+        </tr>
+
+        <!-- Legal Text -->
+        <tr>
+          <td class="legal-text">
+            <p>This intensive program offers comprehensive training in modern web development technologies. Please consider your learning commitment and time availability before enrolling.</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="legal-text">
+            <p>Gabriel Anie Web Development Academy is a registered educational service provider in Lagos, Nigeria.</p>
+          </td>
+        </tr>
+
+        <!-- Footer Links -->
+        <tr>
+          <td class="footer-links">
+            <p>
+              <a href="#help">Help centre</a>
+              <span>|</span>
+              <a href="#terms">Terms and conditions</a>
+              <span>|</span>
+              <a href="#privacy">Privacy policy</a>
+            </p>
+            <p>No longer want to receive these emails? <a href="#unsubscribe">Unsubscribe</a></p>
+          </td>
+        </tr>
+
+        <!-- Certification Badge -->
+        <tr>
+          <td class="unsubscribe-section">
+            <img src="https://via.placeholder.com/160x60/f3f4f6/6b7280?text=Certification" width="160" alt="Certification Badge">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

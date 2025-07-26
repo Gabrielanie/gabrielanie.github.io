@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Master Web Design in 2025 | Transform Your Career Today</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #111827;
+      --primary-light: #374151;
+      --secondary: #6366f1;
+      --accent: #f59e0b;
+      --success: #10b981;
+      --warning: #f97316;
+      --danger: #ef4444;
+      
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      
+      --white: #ffffff;
+      --black: #000000;
+      
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--gray-900);
+      line-height: 1.6;
+      overflow-x: hidden;
+      font-feature-settings: 'kern' 1, 'liga' 1;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--gray-200);
+      z-index: 1000;
+      padding: 16px 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--gray-900);
+      letter-spacing: -0.025em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--gray-600);
+      font-weight: 500;
+      font-size: 0.9375rem;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--gray-900);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--secondary);
+      transform: scaleX(0);
+      transition: transform 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-cta {
+      background: var(--gray-900);
+      color: var(--white);
+      padding: 12px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      transition: all 0.2s ease;
+      border: 1px solid var(--gray-900);
+    }
+
+    .nav-cta:hover {
+      background: var(--white);
+      color: var(--gray-900);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: var(--white);
+      position: relative;
+      padding: 160px 24px 120px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gray-100);
+      color: var(--gray-700);
+      padding: 8px 16px;
+      border-radius: 24px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 32px;
+      border: 1px solid var(--gray-200);
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      font-weight: 800;
+      color: var(--gray-900);
+      margin-bottom: 24px;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+    }
+
+    .hero .subtitle {
+      font-size: 1.25rem;
+      color: var(--gray-600);
+      margin-bottom: 48px;
+      font-weight: 400;
+      max-width: 768px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .hero .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 48px;
+      margin: 64px 0;
+      max-width: 768px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 800;
+      display: block;
+      margin-bottom: 8px;
+      color: var(--gray-900);
+      letter-spacing: -0.025em;
+    }
+
+    .stat-label {
+      font-size: 0.9375rem;
+      color: var(--gray-600);
+      font-weight: 500;
+    }
+
+    /* CTA Buttons */
+    .hero-cta {
+      margin-top: 48px;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-primary {
+      background: var(--gray-900);
+      color: var(--white);
+      padding: 16px 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-900);
+    }
+
+    .cta-primary:hover {
+      background: var(--white);
+      color: var(--gray-900);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .cta-secondary {
+      background: var(--white);
+      color: var(--gray-900);
+      padding: 16px 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: 1px solid var(--gray-300);
+      border-radius: 12px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .cta-secondary:hover {
+      background: var(--gray-50);
+      border-color: var(--gray-400);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Features Section */
+    .features {
+      padding: 120px 0;
+      background: var(--gray-50);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .section-badge {
+      display: inline-block;
+      background: var(--white);
+      color: var(--gray-700);
+      padding: 6px 16px;
+      border-radius: 24px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+      border: 1px solid var(--gray-200);
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--gray-900);
+      margin-bottom: 24px;
+      letter-spacing: -0.025em;
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: var(--gray-600);
+      max-width: 768px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 32px;
+      margin-top: 80px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      padding: 40px 32px;
+      border-radius: 16px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-200);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--gray-300);
+    }
+
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--gray-100);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+      border: 1px solid var(--gray-200);
+    }
+
+    .feature-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-description {
+      color: var(--gray-600);
+      line-height: 1.6;
+      font-size: 0.9375rem;
+    }
+
+    /* Curriculum Section */
+    .curriculum {
+      padding: 120px 0;
+      background: var(--white);
+    }
+
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 80px;
+    }
+
+    .curriculum-item {
+      background: var(--white);
+      padding: 32px 28px;
+      border-radius: 16px;
+      border: 1px solid var(--gray-200);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .curriculum-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--secondary);
+      border-radius: 0 0 0 16px;
+    }
+
+    .curriculum-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--gray-300);
+    }
+
+    .curriculum-week {
+      font-size: 0.8125rem;
+      color: var(--secondary);
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .curriculum-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .curriculum-description {
+      color: var(--gray-600);
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    /* Social Proof */
+    .social-proof {
+      padding: 120px 0;
+      background: var(--gray-50);
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 32px;
+      margin-top: 80px;
+    }
+
+    .testimonial {
+      background: var(--white);
+      padding: 32px;
+      border-radius: 16px;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-200);
+      transition: all 0.3s ease;
+    }
+
+    .testimonial:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--gray-300);
+    }
+
+    .testimonial-text {
+      color: var(--gray-700);
+      margin-bottom: 24px;
+      line-height: 1.6;
+      font-size: 0.9375rem;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--gray-900);
+      font-size: 0.9375rem;
+      margin-bottom: 4px;
+    }
+
+    .testimonial-role {
+      font-size: 0.875rem;
+      color: var(--gray-500);
+    }
+
+    /* Pricing Section */
+    .pricing {
+      padding: 120px 0;
+      background: var(--white);
+      text-align: center;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 32px;
+      margin-top: 80px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pricing-card {
+      background: var(--white);
+      color: var(--gray-900);
+      border-radius: 16px;
+      padding: 40px 32px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      border: 1px solid var(--gray-200);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--gray-300);
+    }
+
+    .pricing-card.featured {
+      border: 2px solid var(--secondary);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .pricing-card.featured:hover {
+      box-shadow: var(--shadow-2xl);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--secondary);
+      color: var(--white);
+      padding: 6px 12px;
+      border-radius: 16px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .pricing-card.popular .pricing-badge {
+      background: var(--success);
+    }
+
+    .pricing-card.premium .pricing-badge {
+      background: var(--warning);
+    }
+
+    .pricing-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 8px;
+    }
+
+    .pricing-description {
+      color: var(--gray-600);
+      margin-bottom: 32px;
+      line-height: 1.5;
+      font-size: 0.9375rem;
+    }
+
+    .price {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--gray-900);
+      margin: 24px 0 8px;
+      letter-spacing: -0.025em;
+    }
+
+    .price-note {
+      color: var(--gray-500);
+      font-size: 0.875rem;
+      margin-bottom: 32px;
+    }
+
+    .pricing-features {
+      text-align: left;
+      margin: 32px 0;
+      padding: 0;
+    }
+
+    .pricing-features li {
+      padding: 8px 0;
+      color: var(--gray-700);
+      list-style: none;
+      position: relative;
+      padding-left: 28px;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+    }
+
+    .pricing-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--success);
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .pricing-cta {
+      background: var(--gray-900);
+      color: var(--white);
+      padding: 16px 32px;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      width: 100%;
+      margin-top: 24px;
+      border: 1px solid var(--gray-900);
+    }
+
+    .pricing-cta:hover {
+      background: var(--white);
+      color: var(--gray-900);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pricing-card.featured .pricing-cta {
+      background: var(--secondary);
+      border-color: var(--secondary);
+    }
+
+    .pricing-card.featured .pricing-cta:hover {
+      background: var(--white);
+      color: var(--secondary);
+      border-color: var(--secondary);
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 120px 0;
+      background: var(--gray-50);
+      text-align: center;
+    }
+
+    .contact-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 32px;
+      margin: 64px 0;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-method {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 24px;
+      background: var(--white);
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      border: 1px solid var(--gray-200);
+    }
+
+    .contact-method:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--gray-300);
+    }
+
+    .contact-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      color: var(--gray-700);
+    }
+
+    .contact-method h4 {
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      color: var(--gray-900);
+    }
+
+    .contact-method p {
+      font-size: 0.9375rem;
+      color: var(--gray-600);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--gray-900);
+      color: var(--white);
+      text-align: center;
+      padding: 64px 24px;
+    }
+
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .footer h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .footer p {
+      color: var(--gray-400);
+      line-height: 1.6;
+      font-size: 0.9375rem;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--gray-700);
+      cursor: pointer;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero {
+        padding: 120px 20px 80px;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .features,
+      .curriculum,
+      .pricing,
+      .contact {
+        padding: 80px 0;
+      }
+      
+      .features-grid,
+      .curriculum-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cta-primary,
+      .cta-secondary {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <div class="logo">WebMaster Pro</div>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#curriculum">Curriculum</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="mobile-menu-btn">☰</button>
+      <a href="https://wa.me/2347052971057" class="nav-cta">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content fade-in-up">
+      <div class="hero-badge">
+        <span>🚀</span>
+        New cohort starting February 2025
+      </div>
+      
+      <h1>Master Web Design in 2025</h1>
+      
+      <p class="subtitle">
+        Transform your career with our comprehensive web design program. Learn modern frameworks, 
+        responsive design, and industry best practices from expert instructors.
+      </p>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-number">500+</span>
+          <span class="stat-label">Students Trained</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">95%</span>
+          <span class="stat-label">Job Placement Rate</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">12</span>
+          <span class="stat-label">Week Program</span>
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#pricing" class="cta-primary">
+          Start Learning Today →
+        </a>
+        <a href="#curriculum" class="cta-secondary">
+          View Curriculum
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Why Choose Us</div>
+        <h2 class="section-title">Everything You Need to Succeed</h2>
+        <p class="section-subtitle">
+          Our comprehensive program covers all aspects of modern web design, 
+          from fundamentals to advanced techniques used by industry leaders.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">💻</div>
+          <h3 class="feature-title">Modern Technologies</h3>
+          <p class="feature-description">
+            Learn the latest tools and frameworks including React, Vue.js, 
+            Tailwind CSS, and modern JavaScript. Stay ahead of industry trends.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3 class="feature-title">Design Principles</h3>
+          <p class="feature-description">
+            Master typography, color theory, layout design, and user experience 
+            principles to create visually stunning and functional websites.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3 class="feature-title">Responsive Design</h3>
+          <p class="feature-description">
+            Build websites that work perfectly on all devices. Learn mobile-first 
+            design and advanced CSS techniques for any screen size.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3 class="feature-title">Performance Optimization</h3>
+          <p class="feature-description">
+            Optimize your websites for speed and SEO. Learn best practices for 
+            loading times, accessibility, and search engine optimization.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">👥</div>
+          <h3 class="feature-title">Expert Mentorship</h3>
+          <p class="feature-description">
+            Get personalized guidance from industry professionals with years of 
+            experience in web design and development.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <h3 class="feature-title">Career Support</h3>
+          <p class="feature-description">
+            Receive job placement assistance, portfolio reviews, and interview 
+            preparation to launch your web design career.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curriculum Section -->
+  <section id="curriculum" class="curriculum">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Curriculum</div>
+        <h2 class="section-title">12-Week Learning Journey</h2>
+        <p class="section-subtitle">
+          Our structured curriculum takes you from beginner to professional web designer 
+          with hands-on projects and real-world applications.
+        </p>
+      </div>
+
+      <div class="curriculum-grid">
+        <div class="curriculum-item">
+          <div class="curriculum-week">Week 1-2</div>
+          <h4 class="curriculum-title">HTML & CSS Fundamentals</h4>
+          <p class="curriculum-description">
+            Learn the building blocks of web design. Master semantic HTML, CSS selectors, 
+            flexbox, and grid layouts.
+          </p>
+        </div>
+
+        <div class="curriculum-item">
+          <div class="curriculum-week">Week 3-4</div>
+          <h4 class="curriculum-title">Responsive Design & Mobile-First</h4>
+          <p class="curriculum-description">
+            Create websites that adapt to any screen size. Learn media queries, 
+            breakpoints, and mobile-first design methodology.
+          </p>
+        </div>
+
+        <div class="curriculum-item">
+          <div class="curriculum-week">Week 5-6</div>
+          <h4 class="curriculum-title">JavaScript & Interactivity</h4>
+          <p class="curriculum-description">
+            Add dynamic behavior to your websites. Master DOM manipulation, 
+            events, and modern JavaScript ES6+ features.
+          </p>
+        </div>
+
+        <div class="curriculum-item">
+          <div class="curriculum-week">Week 7-8</div>
+          <h4 class="curriculum-title">CSS Frameworks & Tailwind</h4>
+          <p class="curriculum-description">
+            Speed up development with CSS frameworks. Deep dive into Tailwind CSS 
+            and utility-first design principles.
+          </p>
+        </div>
+
+        <div class="curriculum-item">
+          <div class="curriculum-week">Week 9-10</div>
+          <h4 class="curriculum-title">React & Modern Frontend</h4>
+          <p class="curriculum-description">
+            Build dynamic web applications with React. Learn components, hooks, 
+            state management, and modern development workflows.
+          </p>
+        </div>
+
+        <div class="curriculum-item">
+          <div class="curriculum-week">Week 11-12</div>
+          <h4 class="curriculum-title">Portfolio & Career Prep</h4>
+          <p class="curriculum-description">
+            Create a professional portfolio website and prepare for job interviews. 
+            Learn deployment, version control with Git, and industry best practices.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof Section -->
+  <section class="social-proof">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Student Success</div>
+        <h2 class="section-title">What Our Students Say</h2>
+        <p class="section-subtitle">
+          Join hundreds of successful graduates who have transformed their careers 
+          through our comprehensive web design program.
+        </p>
+      </div>
+
+      <div class="testimonials">
+        <div class="testimonial">
+          <p class="testimonial-text">
+            "This program completely changed my career. I went from having no coding experience 
+            to landing a frontend developer role at a tech startup in just 4 months after graduation."
+          </p>
+          <div class="testimonial-author">Sarah Johnson</div>
+          <div class="testimonial-role">Frontend Developer at InnovateTech</div>
+        </div>
+
+        <div class="testimonial">
+          <p class="testimonial-text">
+            "The instructors are amazing and the curriculum is perfectly structured. I loved the 
+            hands-on approach and the real-world projects that built up my portfolio."
+          </p>
+          <div class="testimonial-author">Michael Chen</div>
+          <div class="testimonial-role">UI/UX Designer at CreativeStudio</div>
+        </div>
+
+        <div class="testimonial">
+          <p class="testimonial-text">
+            "As someone who was transitioning careers, this program gave me all the tools and 
+            confidence I needed. The career support was invaluable in landing my dream job."
+          </p>
+          <div class="testimonial-author">Emily Rodriguez</div>
+          <div class="testimonial-role">Web Designer at DigitalAgency</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Pricing</div>
+        <h2 class="section-title">Choose Your Learning Path</h2>
+        <p class="section-subtitle">
+          Flexible payment options designed to make quality web design education 
+          accessible to everyone. Start your journey today.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-badge">Basic</div>
+          <h3 class="pricing-title">Self-Paced</h3>
+          <p class="pricing-description">Perfect for motivated learners who prefer flexibility</p>
+          <div class="price">₦150,000</div>
+          <p class="price-note">One-time payment</p>
+          <ul class="pricing-features">
+            <li>Complete video course library</li>
+            <li>Downloadable resources & templates</li>
+            <li>Community forum access</li>
+            <li>Basic project feedback</li>
+            <li>Certificate of completion</li>
+          </ul>
+          <a href="https://wa.me/2347052971057" class="pricing-cta">Get Started</a>
+        </div>
+
+        <div class="pricing-card featured popular">
+          <div class="pricing-badge">Most Popular</div>
+          <h3 class="pricing-title">Mentored Program</h3>
+          <p class="pricing-description">Our most comprehensive program with personal guidance</p>
+          <div class="price">₦350,000</div>
+          <p class="price-note">Payment plans available</p>
+          <ul class="pricing-features">
+            <li>Everything in Self-Paced</li>
+            <li>Weekly live sessions with instructors</li>
+            <li>Personal mentor assignment</li>
+            <li>Portfolio review & feedback</li>
+            <li>Job placement assistance</li>
+            <li>Interview preparation</li>
+            <li>LinkedIn profile optimization</li>
+          </ul>
+          <a href="https://wa.me/2347052971057" class="pricing-cta">Start Learning</a>
+        </div>
+
+        <div class="pricing-card premium">
+          <div class="pricing-badge">Premium</div>
+          <h3 class="pricing-title">VIP Intensive</h3>
+          <p class="pricing-description">Maximum support and fastest path to employment</p>
+          <div class="price">₦550,000</div>
+          <p class="price-note">Limited spots available</p>
+          <ul class="pricing-features">
+            <li>Everything in Mentored Program</li>
+            <li>1-on-1 weekly mentor calls</li>
+            <li>Priority job placement support</li>
+            <li>Custom portfolio development</li>
+            <li>Freelance business setup guidance</li>
+            <li>6 months post-graduation support</li>
+            <li>Access to exclusive job network</li>
+          </ul>
+          <a href="https://wa.me/2347052971057" class="pricing-cta">Apply Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Get in Touch</div>
+        <h2 class="section-title">Ready to Start Your Journey?</h2>
+        <p class="section-subtitle">
+          Have questions about our program? We're here to help you choose the right path 
+          for your web design career goals.
+        </p>
+      </div>
+
+      <div class="contact-methods">
+        <div class="contact-method">
+          <div class="contact-icon">📱</div>
+          <h4>WhatsApp</h4>
+          <p>+234 705 297 1057</p>
+        </div>
+
+        <div class="contact-method">
+          <div class="contact-icon">📧</div>
+          <h4>Email</h4>
+          <p>info@webmasterpro.ng</p>
+        </div>
+
+        <div class="contact-method">
+          <div class="contact-icon">📍</div>
+          <h4>Location</h4>
+          <p>Lagos, Nigeria</p>
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="https://wa.me/2347052971057" class="cta-primary">
+          Start Your Application →
+        </a>
+        <a href="#curriculum" class="cta-secondary">
+          Download Curriculum
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <h3>WebMaster Pro</h3>
+      <p>
+        Empowering the next generation of web designers with cutting-edge skills 
+        and industry-relevant training. Transform your career in 2025.
+      </p>
+      <p style="margin-top: 32px; font-size: 0.875rem;">
+        © 2025 WebMaster Pro. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Add scroll effect to navigation
+    window.addEventListener('scroll', function() {
+      const nav = document.querySelector('.nav');
+      if (window.scrollY > 100) {
+        nav.style.background = 'rgba(255, 255, 255, 0.95)';
+        nav.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
+      } else {
+        nav.style.background = 'rgba(255, 255, 255, 0.8)';
+        nav.style.boxShadow = 'none';
+      }
+    });
+
+    // Add intersection observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections for fade-in effect
+    document.querySelectorAll('section').forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(30px)';
+      section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(section);
+    });
+
+    // Mobile menu functionality (basic implementation)
+    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    });
+  </script>
+
+</body>
+</html>
