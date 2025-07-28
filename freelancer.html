@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <title>Transform Your Business Online - Professional Web Design Services</title>
+  
+  <style>
+    :root {
+      color-scheme: light dark;
+      --primary: #1e293b;
+      --accent: #3b82f6;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --text-primary: #0f172a;
+      --text-secondary: #64748b;
+      --text-muted: #94a3b8;
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-tertiary: #f1f5f9;
+      --border: #e2e8f0;
+      --shadow: rgba(0, 0, 0, 0.08);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text-primary: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --text-muted: #94a3b8;
+        --bg-primary: #0f172a;
+        --bg-secondary: #1e293b;
+        --bg-tertiary: #334155;
+        --border: #475569;
+        --shadow: rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, table, td, p, a {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-feature-settings: "kern" 1, "liga" 1;
+      text-rendering: optimizeLegibility;
+    }
+
+    body {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+
+    img {
+      border: 0;
+      height: auto;
+      max-width: 100%;
+      outline: none;
+      text-decoration: none;
+      -ms-interpolation-mode: bicubic;
+    }
+
+    .email-wrapper {
+      width: 100%;
+      padding: 32px 16px;
+      background: var(--bg-secondary);
+    }
+
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--bg-primary);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px var(--shadow), 0 2px 4px -1px var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* Header */
+    .header {
+      background: var(--primary);
+      padding: 48px 32px;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .header-subtitle {
+      font-size: 18px;
+      opacity: 0.9;
+      margin: 0;
+      font-weight: 400;
+    }
+
+    /* Content */
+    .content {
+      padding: 48px 32px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Problem statement */
+    .problem-statement {
+      background: #fef3c7;
+      border-left: 4px solid var(--warning);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .problem-statement h3 {
+      color: #92400e;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .problem-statement p {
+      color: #78350f;
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* Solution section */
+    .solution {
+      text-align: center;
+      padding: 32px 0;
+    }
+
+    .solution h3 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .solution p {
+      color: var(--text-secondary);
+      font-size: 17px;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* Portfolio stats */
+    .portfolio {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .portfolio h4 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 24px;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 20px 16px;
+      background: var(--bg-primary);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .stat-number {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Services */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .service {
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 20px;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .service:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px -5px var(--shadow);
+    }
+
+    .service-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .service h5 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .service p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Pricing */
+    .pricing {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .pricing h4 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #166534;
+      margin-bottom: 24px;
+    }
+
+    .price-item {
+      background: #ffffff;
+      border: 1px solid #d1fae5;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 12px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price-service {
+      font-weight: 500;
+      color: #166534;
+      font-size: 14px;
+    }
+
+    .price-amount {
+      font-weight: 700;
+      color: var(--success);
+      font-size: 16px;
+    }
+
+    /* Benefits */
+    .benefits h4 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 15px;
+      color: var(--text-secondary);
+      padding: 16px;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .check {
+      color: var(--success);
+      font-weight: 700;
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Testimonial */
+    .testimonial {
+      background: var(--primary);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 32px;
+      position: relative;
+    }
+
+    .testimonial::before {
+      content: '"';
+      position: absolute;
+      top: 16px;
+      left: 24px;
+      font-size: 60px;
+      color: rgba(255,255,255,0.1);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    .testimonial-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .testimonial p {
+      font-style: italic;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      font-size: 14px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* Guarantee */
+    .guarantee {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .guarantee h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #166534;
+      margin-bottom: 12px;
+    }
+
+    .guarantee p {
+      color: #166534;
+      font-size: 15px;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* CTA */
+    .cta {
+      background: var(--primary);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 40px 32px;
+      text-align: center;
+    }
+
+    .cta h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .cta p {
+      margin-bottom: 24px;
+      opacity: 0.9;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      color: var(--primary) !important;
+      padding: 14px 24px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .cta-button:hover {
+      background: #f8fafc;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    /* WhatsApp CTA */
+    .whatsapp {
+      background: #25d366;
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .whatsapp strong {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .whatsapp p {
+      margin: 0;
+      opacity: 0.9;
+      font-size: 15px;
+    }
+
+    .whatsapp-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      color: #25d366 !important;
+      padding: 12px 20px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .whatsapp-button:hover {
+      background: #f8fafc;
+      transform: translateY(-1px);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .footer-name {
+      font-weight: 700;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .footer-contact {
+      margin: 16px 0;
+      line-height: 1.6;
+      font-size: 15px;
+      opacity: 0.9;
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .social-icon {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 8px 12px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .social-icon:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .footer-copyright {
+      margin-top: 24px;
+      font-size: 13px;
+      opacity: 0.7;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 640px) {
+      .email-wrapper { 
+        padding: 16px 8px; 
+      }
+      
+      .content, .header, .cta, .footer { 
+        padding-left: 20px; 
+        padding-right: 20px; 
+      }
+      
+      .header {
+        padding: 32px 20px;
+      }
+      
+      .content {
+        padding: 32px 20px;
+      }
+      
+      .header h1 { 
+        font-size: 24px; 
+      }
+      
+      .services { 
+        grid-template-columns: 1fr; 
+        gap: 16px;
+      }
+      
+      .stats {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      
+      .price-item { 
+        flex-direction: column; 
+        gap: 8px; 
+        text-align: center; 
+      }
+      
+      .cta h3 { 
+        font-size: 20px; 
+      }
+      
+      .cta-button { 
+        padding: 12px 20px; 
+        font-size: 15px; 
+      }
+
+      .section {
+        margin-bottom: 32px;
+      }
+    }
+
+    /* Accessibility */
+    @media (prefers-contrast: high) {
+      .service, .stat, .benefit {
+        border-width: 2px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="email-wrapper">
+    <div class="email-container">
+      
+      <!-- Header -->
+      <div class="header">
+        <div class="header-badge">
+          <span>⚡</span> Professional Web Solutions
+        </div>
+        <h1>Transform Your Business Online</h1>
+        <p class="header-subtitle">Custom websites that attract customers and accelerate growth</p>
+      </div>
+
+      <!-- Content -->
+      <div class="content">
+        
+        <!-- Problem Statement -->
+        <div class="section">
+          <div class="problem-statement">
+            <h3>🌐 Your Business Deserves Better Online Representation</h3>
+            <p>In today's digital landscape, customers expect to find businesses online. A professional website isn't just nice to have—it's essential for building trust and reaching new customers who are actively searching for your services.</p>
+            <p style="margin-top: 12px;">Many established businesses still rely on word-of-mouth or basic social media presence, missing opportunities to showcase their expertise and connect with customers beyond their immediate network.</p>
+          </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="section">
+          <div class="solution">
+            <h3>Professional Websites Built for Real Businesses</h3>
+            <p>I specialize in creating clean, professional websites that effectively represent your business online. Each site is carefully crafted to be user-friendly, mobile-responsive, and optimized for search engines.</p>
+            <div style="background: var(--bg-secondary); border-radius: 8px; padding: 24px; margin-top: 20px; text-align: left;">
+              <h4 style="color: var(--text-primary); font-size: 18px; font-weight: 600; margin-bottom: 12px;">What You Get:</h4>
+              <ul style="margin: 0; padding-left: 20px; color: var(--text-secondary);">
+                <li>Clean, professional design that reflects your brand</li>
+                <li>Mobile-friendly layout that works on all devices</li>
+                <li>Easy-to-navigate structure for better user experience</li>
+                <li>Fast loading speeds and reliable performance</li>
+                <li>Basic SEO setup to help customers find you</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Portfolio Stats -->
+        <div class="section">
+          <div class="portfolio">
+            <h4>📈 Proven Track Record</h4>
+            <div class="stats">
+              <div class="stat">
+                <span class="stat-number">300+</span>
+                <span class="stat-label">Websites Delivered</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">2-4 Days</span>
+                <span class="stat-label">Average Delivery</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Client Satisfaction</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Services -->
+        <div class="section">
+          <div class="services">
+            <div class="service">
+              <span class="service-icon">💼</span>
+              <h5>Business Websites</h5>
+              <p>Professional designs that establish credibility and convert visitors into loyal customers</p>
+            </div>
+            <div class="service">
+              <span class="service-icon">🛍️</span>
+              <h5>E-commerce Stores</h5>
+              <p>Complete online shops with secure payments, inventory management, and sales optimization</p>
+            </div>
+            <div class="service">
+              <span class="service-icon">📱</span>
+              <h5>Mobile-First Design</h5>
+              <p>Responsive websites that deliver exceptional experiences across all devices and screen sizes</p>
+            </div>
+            <div class="service">
+              <span class="service-icon">🔍</span>
+              <h5>SEO Optimization</h5>
+              <p>Built-in search engine optimization to improve visibility and attract organic traffic</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pricing -->
+        <div class="section">
+          <div class="pricing">
+            <h4>💰 Investment Options</h4>
+            <div class="price-item">
+              <span class="price-service">Professional Business Website (5-7 pages)</span>
+              <span class="price-amount">₦85,000</span>
+            </div>
+            <div class="price-item">
+              <span class="price-service">Advanced Business Site + SEO</span>
+              <span class="price-amount">₦140,000</span>
+            </div>
+            <div class="price-item">
+              <span class="price-service">Complete E-commerce Solution</span>
+              <span class="price-amount">₦200,000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Benefits -->
+        <div class="section">
+          <div class="benefits">
+            <h4>✨ What's Included</h4>
+            <div class="benefit">
+              <span class="check">✓</span>
+              <span>Fully responsive design optimized for all devices and browsers</span>
+            </div>
+            <div class="benefit">
+              <span class="check">✓</span>
+              <span>Lightning-fast loading speeds (under 2 seconds guaranteed)</span>
+            </div>
+            <div class="benefit">
+              <span class="check">✓</span>
+              <span>Professional SEO setup to improve search engine rankings</span>
+            </div>
+            <div class="benefit">
+              <span class="check">✓</span>
+              <span>Secure hosting configuration with SSL certificate included</span>
+            </div>
+            <div class="benefit">
+              <span class="check">✓</span>
+              <span>45 days of comprehensive support and unlimited revisions</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guarantee -->
+        <div class="section">
+          <div class="guarantee">
+            <h4>🛡️ 100% Satisfaction Guarantee</h4>
+            <p>Your complete satisfaction is guaranteed. I don't consider the project complete until you're absolutely thrilled with the results.</p>
+          </div>
+        </div>
+
+        <!-- Testimonial -->
+        <div class="section">
+          <div class="testimonial">
+            <div class="testimonial-content">
+              <p>"Gabriel transformed our online presence completely. Within 6 weeks of launching our new website, we saw a 75% increase in qualified leads and our revenue grew by 40%. The ROI was incredible."</p>
+              <div class="testimonial-author">— Tunde Bakare, CEO of TechFlow Solutions</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main CTA -->
+        <div class="section">
+          <div class="cta">
+            <h3>Ready to Transform Your Business?</h3>
+            <p>Let's discuss your project and create a website that drives real results for your business.</p>
+            <a href="https://wa.me/2347052971057?text=Hi%20Gabriel,%20I'm%20interested%20in%20getting%20a%20professional%20website%20for%20my%20business.%20Can%20we%20discuss%20my%20project?" class="cta-button">
+              <span>📧</span> Get Your Free Consultation
+            </a>
+          </div>
+        </div>
+
+        <!-- WhatsApp CTA -->
+        <div class="section">
+          <div class="whatsapp">
+            <strong>Prefer to chat directly?</strong>
+            <p>Message me on WhatsApp for instant responses and quick project discussions.</p>
+            <a href="https://wa.me/2347052971057?text=Hello%20Gabriel,%20I%20saw%20your%20email%20about%20web%20design%20services.%20I'd%20like%20to%20discuss%20creating%20a%20website%20for%20my%20business." class="whatsapp-button">
+              <span>📱</span> Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <div class="footer-name">Gabriel Anie</div>
+        <div class="footer-contact">
+          Professional Web Designer & Developer<br>
+          📧 younganiel@gmail.com<br>
+          📱 +234 705 297 1057
+        </div>
+        <div class="footer-social">
+          <a href="#" class="social-icon">LinkedIn</a>
+          <a href="#" class="social-icon">Portfolio</a>
+          <a href="#" class="social-icon">Instagram</a>
+        </div>
+        <div class="footer-copyright">
+          © 2025 Gabriel Anie Web Design. All rights reserved.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

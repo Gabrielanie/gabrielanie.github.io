@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web Development Intensive - Summer 2025</title>
+  <title>Web Development Mastery - Summer 2025</title>
   <!--[if mso]>
   <noscript>
     <xml>
@@ -14,7 +14,7 @@
   </noscript>
   <![endif]-->
   <style>
-    /* Reset styles for email clients */
+    /* Reset and base styles */
     * {
       margin: 0;
       padding: 0;
@@ -29,6 +29,7 @@
     table, td {
       mso-table-lspace: 0pt;
       mso-table-rspace: 0pt;
+      border-collapse: collapse;
     }
 
     img {
@@ -38,28 +39,21 @@
       line-height: 100%;
       outline: none;
       text-decoration: none;
+      max-width: 100%;
+      display: block;
     }
 
-    /* Gmail-specific styles */
-    u + .body .gmail-fix {
-      display: none;
-    }
+    /* Gmail fixes */
+    u + .body .gmail-fix { display: none; }
+    .gmail-fix { display: none !important; }
+    [data-ogsc] .gmail-fix { display: none !important; }
 
-    .gmail-fix {
-      display: none;
-      display: none !important;
-    }
-
-    [data-ogsc] .gmail-fix {
-      display: none !important;
-    }
-
-    /* Main email styles */
+    /* Modern email body */
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-      line-height: 1.7;
-      background-color: #f8fafc;
-      color: #1a202c;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #ffffff;
+      color: #1f2937;
       margin: 0;
       padding: 0;
       width: 100% !important;
@@ -69,206 +63,159 @@
       font-size: 16px;
     }
 
+    /* Email wrapper table */
     .email-wrapper {
       width: 100%;
-      background-color: #f8fafc;
+      background-color: #ffffff;
       padding: 20px 0;
     }
 
     .email-container {
+      width: 100%;
       max-width: 600px;
       margin: 0 auto;
       background-color: #ffffff;
-      border-radius: 8px;
+      border: none;
+      border-radius: 0;
       overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: none;
     }
 
-    /* Header styles */
+    /* Header */
     .header {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: #ffffff;
-      padding: 40px 30px;
+      background: #1e3a8a;
+      padding: 32px 24px;
       text-align: center;
     }
 
-    .program-badge {
+    .floating-badge {
       display: inline-block;
-      background-color: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 8px 16px;
+      background: #fbbf24;
+      border: 1px solid #f59e0b;
+      padding: 6px 16px;
       border-radius: 20px;
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 11px;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 20px;
-      color: #ffffff;
+      margin-bottom: 16px;
+      color: #1f2937;
     }
 
     .header h1 {
-      font-size: 32px;
-      font-weight: 700;
-      margin: 0 0 15px 0;
-      line-height: 1.3;
+      font-size: 28px;
+      font-weight: 800;
+      margin: 0 0 8px 0;
+      line-height: 1.2;
       color: #ffffff;
     }
 
     .header p {
-      font-size: 17px;
+      font-size: 16px;
       margin: 0;
-      color: rgba(255, 255, 255, 0.95);
-      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.4;
       font-weight: 400;
     }
 
-    /* Content styles */
+    /* Content */
     .content {
-      padding: 40px 30px;
+      padding: 32px 24px;
     }
 
-    .greeting {
-      font-size: 17px;
-      margin-bottom: 25px;
-      color: #2d3748;
-      font-weight: 500;
-    }
-
-    .main-text {
-      font-size: 16px;
+    .personalized-greeting {
+      font-size: 18px;
       margin-bottom: 20px;
-      color: #2d3748;
+      color: #1f2937;
+      font-weight: 600;
+    }
+
+    .hook-text {
+      font-size: 16px;
+      margin-bottom: 24px;
+      color: #374151;
       line-height: 1.7;
       font-weight: 400;
     }
 
-    .main-text strong {
-      color: #1a202c;
-      font-weight: 600;
+    .hook-text strong {
+      color: #1f2937;
+      font-weight: 700;
     }
 
-    /* Feature highlight */
-    .feature-highlight {
-      background-color: #f7fafc;
-      border: 1px solid #e2e8f0;
-      border-left: 4px solid #3b82f6;
-      padding: 25px;
-      margin: 25px 0;
-      border-radius: 8px;
+    /* Value proposition card */
+    .value-card {
+      background: #fef3c7;
+      border: 1px solid #fbbf24;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+      border-left: 4px solid #f59e0b;
     }
 
-    .feature-highlight h3 {
-      color: #1a202c;
+    .value-card h3 {
+      color: #1f2937;
       font-size: 18px;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 12px;
     }
 
-    .feature-highlight p {
-      color: #2d3748;
+    .value-card p {
+      color: #374151;
       line-height: 1.7;
       margin: 0;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 15px;
     }
 
-    /* Stats section */
-    .stats-section {
-      background-color: #ffffff;
-      border: 1px solid #e2e8f0;
-      padding: 30px;
+    /* Social proof section - Using table for better alignment */
+    .social-proof {
+      background: #ffffff;
+      border: 2px solid #f3f4f6;
+      padding: 24px;
       border-radius: 12px;
-      margin: 30px 0;
+      margin: 24px 0;
       text-align: center;
     }
 
-    .stats-grid {
+    .stats-table {
       width: 100%;
       border-collapse: collapse;
+      margin: 0;
     }
 
-    .stat-item {
-      padding: 15px;
+    .stat-cell {
+      width: 33.33%;
+      padding: 12px 8px;
+      text-align: center;
       vertical-align: top;
     }
 
     .stat-number {
       display: block;
-      font-size: 28px;
-      font-weight: 700;
-      color: #1a202c;
-      margin-bottom: 5px;
+      font-size: 24px;
+      font-weight: 800;
+      color: #15803d;
+      margin-bottom: 4px;
+      line-height: 1;
     }
 
     .stat-label {
-      font-size: 13px;
-      color: #4a5568;
-      font-weight: 500;
+      font-size: 12px;
+      color: #6b7280;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-    }
-
-    /* Benefits section */
-    .benefits-section {
-      margin: 30px 0;
-      background-color: #f7fafc;
-      border: 1px solid #e2e8f0;
-      padding: 30px;
-      border-radius: 12px;
-    }
-
-    .benefits-title {
-      color: #1a202c;
-      font-size: 20px;
-      margin-bottom: 25px;
-      font-weight: 600;
-      text-align: center;
-    }
-
-    .benefit-item {
-      margin-bottom: 20px;
-      padding: 15px;
-      background-color: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-    }
-
-    .benefit-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .benefit-number {
-      display: inline-block;
-      width: 24px;
-      height: 24px;
-      background-color: #3b82f6;
-      color: #ffffff;
-      border-radius: 4px;
-      text-align: center;
-      line-height: 24px;
-      font-size: 12px;
-      font-weight: 600;
-      margin-right: 12px;
-      vertical-align: top;
-    }
-
-    .benefit-text {
-      color: #2d3748;
-      font-size: 15px;
-      line-height: 1.6;
-      display: inline-block;
-      width: calc(100% - 40px);
-      vertical-align: top;
-      font-weight: 400;
+      line-height: 1.2;
     }
 
     /* Testimonial */
     .testimonial {
-      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      background: #15803d;
       color: #ffffff;
-      padding: 30px;
+      padding: 28px;
       border-radius: 12px;
-      margin: 30px 0;
+      margin: 24px 0;
     }
 
     .testimonial-quote {
@@ -282,185 +229,224 @@
 
     .author-info {
       border-top: 1px solid rgba(255, 255, 255, 0.2);
-      padding-top: 20px;
+      padding-top: 16px;
     }
 
     .author-info h4 {
       font-weight: 600;
-      font-size: 16px;
-      margin-bottom: 5px;
+      font-size: 15px;
+      margin-bottom: 4px;
       color: #ffffff;
     }
 
     .author-info p {
-      font-size: 14px;
+      font-size: 13px;
       color: rgba(255, 255, 255, 0.8);
       margin: 0;
       font-weight: 400;
     }
 
-    /* Urgency banner */
-    .urgency-banner {
-      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    /* Scarcity indicator */
+    .scarcity-bar {
+      background: #dc2626;
       color: #ffffff;
-      padding: 20px;
+      padding: 16px 20px;
       text-align: center;
-      margin: 25px 0;
+      margin: 20px 0;
       border-radius: 8px;
     }
 
-    .urgency-text {
-      font-weight: 600;
+    .scarcity-text {
+      font-weight: 700;
       font-size: 14px;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
       color: #ffffff;
     }
 
     /* CTA section */
     .cta-section {
-      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-      padding: 40px 30px;
+      background: #1e3a8a;
+      padding: 32px 24px;
       border-radius: 12px;
       text-align: center;
-      margin: 30px 0;
+      margin: 24px 0;
     }
 
     .cta-title {
-      font-size: 24px;
-      font-weight: 600;
+      font-size: 22px;
+      font-weight: 800;
       color: #ffffff;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
 
     .cta-subtitle {
       font-size: 16px;
       color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 25px;
-      line-height: 1.6;
+      margin-bottom: 24px;
+      line-height: 1.5;
       font-weight: 400;
+    }
+
+    .cta-buttons {
+      margin-top: 20px;
     }
 
     .cta-button {
       display: inline-block;
-      padding: 15px 25px;
-      margin: 8px;
+      padding: 14px 28px;
+      margin: 6px;
       text-decoration: none;
       border-radius: 8px;
-      font-weight: 600;
-      font-size: 16px;
+      font-weight: 700;
+      font-size: 15px;
       text-align: center;
-      min-width: 200px;
-      transition: all 0.2s ease;
+      min-width: 180px;
+      transition: all 0.3s ease;
     }
 
     .cta-primary {
-      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-      color: #ffffff !important;
+      background: #fbbf24;
+      color: #1f2937 !important;
+      box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(251, 191, 36, 0.4);
+      background: #f59e0b;
     }
 
     .cta-secondary {
-      background-color: transparent;
+      background: rgba(255, 255, 255, 0.15);
       color: #ffffff !important;
-      border: 2px solid rgba(255, 255, 255, 0.4);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .cta-secondary:hover {
+      background: rgba(255, 255, 255, 0.25);
     }
 
     /* Contact section */
     .contact-section {
-      background-color: #f7fafc;
-      border: 1px solid #e2e8f0;
-      padding: 30px;
+      background: #dcfce7;
+      border: 1px solid #16a34a;
+      padding: 28px 24px;
       border-radius: 12px;
-      margin: 30px 0;
+      margin: 24px 0;
     }
 
     .contact-title {
-      color: #1a202c;
-      font-size: 20px;
-      margin-bottom: 25px;
-      font-weight: 600;
+      color: #1f2937;
+      font-size: 18px;
+      margin-bottom: 20px;
+      font-weight: 700;
       text-align: center;
+    }
+
+    .contact-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .contact-cell {
+      width: 50%;
+      padding: 8px;
+      vertical-align: top;
     }
 
     .contact-card {
-      background-color: #ffffff;
-      border: 1px solid #e2e8f0;
-      padding: 20px;
+      background: #ffffff;
+      border: 1px solid #16a34a;
+      padding: 16px;
       border-radius: 8px;
-      margin-bottom: 15px;
       text-align: center;
+      transition: all 0.3s ease;
+      height: 100%;
     }
 
-    .contact-card:last-child {
-      margin-bottom: 0;
+    .contact-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(22, 163, 74, 0.15);
+      border-color: #15803d;
+    }
+
+    .contact-icon {
+      font-size: 20px;
+      margin-bottom: 6px;
+      display: block;
     }
 
     .contact-card h4 {
-      color: #1a202c;
+      color: #1f2937;
       font-weight: 600;
-      font-size: 16px;
-      margin-bottom: 5px;
+      font-size: 13px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .contact-card p {
-      color: #4a5568;
+      color: #6b7280;
       font-size: 14px;
       margin: 0;
-      font-weight: 400;
+      font-weight: 500;
     }
 
     /* Signature */
     .signature {
-      margin-top: 30px;
-      padding-top: 25px;
-      border-top: 1px solid #e2e8f0;
-      color: #4a5568;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e7eb;
+      color: #6b7280;
+      font-size: 15px;
     }
 
     .signature strong {
-      color: #1a202c;
+      color: #1f2937;
       font-weight: 600;
     }
 
     .ps-section {
-      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      background: #fef3c7;
       border-left: 4px solid #f59e0b;
-      color: #92400e;
-      padding: 20px;
+      color: #374151;
+      padding: 18px;
       border-radius: 0 8px 8px 0;
-      margin-top: 25px;
+      margin-top: 20px;
     }
 
     .ps-section p {
       font-size: 14px;
-      line-height: 1.7;
+      line-height: 1.6;
       margin: 0;
       font-weight: 400;
     }
 
     .ps-section strong {
-      font-weight: 600;
+      font-weight: 700;
+      color: #1f2937;
     }
 
     /* Footer */
     .footer {
-      background-color: #0f172a;
-      padding: 30px;
+      background: #1e3a8a;
+      padding: 28px 24px;
       text-align: center;
       color: #ffffff;
     }
 
     .footer-name {
-      font-weight: 600;
-      font-size: 20px;
-      margin-bottom: 8px;
+      font-weight: 800;
+      font-size: 17px;
+      margin-bottom: 4px;
       color: #ffffff;
     }
 
     .footer-title {
-      font-size: 14px;
+      font-size: 13px;
       color: rgba(255, 255, 255, 0.8);
-      margin-bottom: 12px;
+      margin-bottom: 6px;
       font-weight: 400;
     }
 
@@ -475,17 +461,23 @@
     /* Mobile responsiveness */
     @media only screen and (max-width: 600px) {
       .email-wrapper {
-        padding: 10px 0;
+        padding: 10px;
       }
       
       .email-container {
-        border-radius: 0;
-        margin: 0 10px;
+        border-radius: 8px;
+        margin: 0;
+        border: none;
+        box-shadow: none;
       }
 
-      .header, .content, .footer {
-        padding-left: 20px;
-        padding-right: 20px;
+      .header, .content, .footer, .cta-section, .contact-section {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .content {
+        padding: 24px 16px;
       }
 
       .header h1 {
@@ -498,280 +490,189 @@
 
       .cta-button {
         display: block;
-        margin: 10px 0;
+        margin: 8px auto;
         min-width: auto;
-      }
-
-      .stat-item {
-        display: block;
         width: 100%;
-        margin-bottom: 20px;
+        max-width: 280px;
       }
 
-      .benefit-text {
-        width: calc(100% - 36px);
+      .stats-table .stat-cell {
+        width: 100%;
+        display: block;
+        padding: 8px 0;
+        border-bottom: 1px solid #f3f4f6;
+      }
+
+      .stats-table .stat-cell:last-child {
+        border-bottom: none;
+      }
+
+      .contact-table .contact-cell {
+        width: 100%;
+        display: block;
+        padding: 6px 0;
+      }
+
+      .value-card, .social-proof, .testimonial, .scarcity-bar, .cta-section, .contact-section {
+        margin-left: 0;
+        margin-right: 0;
       }
     }
 
-    /* Improved Dark mode support */
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #111827 !important;
-        color: #f9fafb !important;
-      }
-      
-      .email-wrapper {
-        background-color: #111827 !important;
-      }
-      
-      .email-container {
-        background-color: #1f2937 !important;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
-      }
-      
-      .content {
-        background-color: #1f2937 !important;
-      }
-      
-      .main-text, .greeting {
-        color: #e5e7eb !important;
-      }
-      
-      .main-text strong {
-        color: #f9fafb !important;
-      }
-      
-      .feature-highlight {
-        background-color: #374151 !important;
-        border-color: #4b5563 !important;
-      }
-      
-      .feature-highlight h3 {
-        color: #f9fafb !important;
-      }
-      
-      .feature-highlight p {
-        color: #d1d5db !important;
-      }
-      
-      .stats-section {
-        background-color: #374151 !important;
-        border-color: #4b5563 !important;
-      }
-      
-      .stat-number {
-        color: #f9fafb !important;
-      }
-      
-      .stat-label {
-        color: #9ca3af !important;
-      }
-      
-      .benefits-section {
-        background-color: #374151 !important;
-        border-color: #4b5563 !important;
-      }
-      
-      .benefits-title {
-        color: #f9fafb !important;
-      }
-      
-      .benefit-item {
-        background-color: #1f2937 !important;
-        border-color: #4b5563 !important;
-      }
-      
-      .benefit-text {
-        color: #d1d5db !important;
-      }
-      
-      .contact-section {
-        background-color: #374151 !important;
-        border-color: #4b5563 !important;
-      }
-      
-      .contact-title {
-        color: #f9fafb !important;
-      }
-      
-      .contact-card {
-        background-color: #1f2937 !important;
-        border-color: #4b5563 !important;
-      }
-      
-      .contact-card h4 {
-        color: #f9fafb !important;
-      }
-      
-      .contact-card p {
-        color: #9ca3af !important;
-      }
-      
-      .signature {
-        color: #9ca3af !important;
-        border-color: #4b5563 !important;
-      }
-      
-      .signature strong {
-        color: #f9fafb !important;
-      }
-    }
+    /* Remove all dark mode styles - white background only */
 
-    /* Outlook specific */
+    /* Outlook specific fixes */
     <!--[if mso]>
     .email-container {
+      width: 600px !important;
+    }
+    .stats-table {
+      width: 600px !important;
+    }
+    .contact-table {
       width: 600px !important;
     }
     <![endif]-->
   </style>
 </head>
 <body>
-  <div class="email-wrapper">
-    <div class="email-container">
-      
-      <div class="header">
-        <div class="program-badge">
-          ⚡ Summer Intensive 2025
-        </div>
-        <h1>Web Development Mastery</h1>
-        <p>Transform your career in 10 intensive weeks with industry-leading curriculum and personalized mentorship</p>
-      </div>
-
-      <div class="content">
-        <p class="greeting">Hello,</p>
-
-        <p class="main-text">
-          The digital landscape is evolving rapidly, and so should your career. Our intensive 10-week summer program is designed for ambitious professionals ready to master modern web development and secure positions with leading tech companies.
-        </p>
-
-        <div class="feature-highlight">
-          <h3>🎯 Industry-Aligned Excellence</h3>
-          <p>
-            Built in partnership with top-tier companies, our curriculum focuses on the exact skills and technologies that drive hiring decisions in today's competitive market. Every module is crafted to deliver immediate, practical value.
-          </p>
-        </div>
-
-        <div class="stats-section">
-          <table class="stats-grid" width="100%" cellpadding="0" cellspacing="0">
-            <tr>
-              <td class="stat-item">
-                <span class="stat-number">250+</span>
-                <span class="stat-label">Alumni Placed</span>
-              </td>
-              <td class="stat-item">
-                <span class="stat-number">98%</span>
-                <span class="stat-label">Success Rate</span>
-              </td>
-              <td class="stat-item">
-                <span class="stat-number">₦1.2M</span>
-                <span class="stat-label">Average Salary</span>
-              </td>
-            </tr>
-          </table>
-        </div>
-
-        <div class="benefits-section">
-          <h4 class="benefits-title">Comprehensive Learning Experience</h4>
+  <table role="presentation" class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td align="center">
+        <table role="presentation" class="email-container" cellpadding="0" cellspacing="0" border="0">
           
-          <div class="benefit-item">
-            <span class="benefit-number">01</span>
-            <span class="benefit-text">Master React, Next.js, TypeScript, and modern development workflows</span>
-          </div>
-          
-          <div class="benefit-item">
-            <span class="benefit-number">02</span>
-            <span class="benefit-text">Build production-ready applications with real-world complexity</span>
-          </div>
-          
-          <div class="benefit-item">
-            <span class="benefit-number">03</span>
-            <span class="benefit-text">Advanced UI/UX design principles and design system implementation</span>
-          </div>
-          
-          <div class="benefit-item">
-            <span class="benefit-number">04</span>
-            <span class="benefit-text">1-on-1 mentorship with senior engineers from Fortune 500 companies</span>
-          </div>
-          
-          <div class="benefit-item">
-            <span class="benefit-number">05</span>
-            <span class="benefit-text">Direct placement pipeline with our partner companies</span>
-          </div>
-          
-          <div class="benefit-item">
-            <span class="benefit-number">06</span>
-            <span class="benefit-text">Freelance business development and client acquisition strategies</span>
-          </div>
-        </div>
+          <tr>
+            <td class="header">
+              <div class="floating-badge">
+                ⚡ Summer 2025 Intensive
+              </div>
+              <h1>Web Development Mastery</h1>
+              <p>10-week intensive • Industry mentorship • Guaranteed placement</p>
+            </td>
+          </tr>
 
-        <div class="testimonial">
-          <p class="testimonial-quote">
-            "This program exceeded every expectation. The curriculum is incredibly current, and Gabriel's mentorship was invaluable. I secured a senior developer role at a unicorn startup within 3 weeks of graduation."
-          </p>
-          <div class="author-info">
-            <h4>Adunni Okonkwo</h4>
-            <p>Senior Frontend Developer, Flutterwave</p>
-          </div>
-        </div>
+          <tr>
+            <td class="content">
+              <p class="personalized-greeting">Hi there 👋</p>
 
-        <div class="urgency-banner">
-          <p class="urgency-text">Limited Enrollment • 18 Spots Remaining • Program Begins June 7th</p>
-        </div>
+              <p class="hook-text">
+                <strong>Quick question:</strong> Are you tired of watching other developers land dream jobs while you're stuck in tutorial hell? 
+              </p>
 
-        <div class="cta-section">
-          <h3 class="cta-title">Ready to Transform Your Career?</h3>
-          <p class="cta-subtitle">Join an exclusive cohort of driven professionals committed to excellence</p>
-          
-          <a href="https://wa.me/2347052971057?text=Hi%20Gabriel,%20I'm%20interested%20in%20enrolling%20in%20the%20summer%20intensive%20program" class="cta-button cta-primary">
-            🚀 Secure Your Spot
-          </a>
-          
-          <a href="https://wa.me/2347052971057?text=Hi%20Gabriel,%20I'd%20like%20to%20learn%20more%20about%20the%20curriculum%20and%20program%20details" class="cta-button cta-secondary">
-            📋 View Curriculum
-          </a>
-        </div>
+              <p class="hook-text">
+                I've helped <strong>250+ developers</strong> break into tech with my intensive summer program. No fluff, no endless theory—just the exact skills companies are hiring for right now.
+              </p>
 
-        <p class="main-text">
-          <strong>Need guidance?</strong> I'm offering complimentary 20-minute career strategy sessions to help you determine if this program aligns with your professional goals. These sessions fill quickly and are available on a first-come basis.
-        </p>
+              <div class="value-card">
+                <h3>🎯 Why This Works</h3>
+                <p>
+                  Built with hiring managers from top companies. Every lesson is designed around real interview questions and actual job requirements. You'll build production apps, not tutorial projects.
+                </p>
+              </div>
 
-        <div class="contact-section">
-          <h4 class="contact-title">Connect With Our Team</h4>
-          
-          <div class="contact-card">
-            <h4>📱 WhatsApp Direct</h4>
-            <p>+234 705 297 1057</p>
-          </div>
-          
-          <div class="contact-card">
-            <h4>📧 Email Support</h4>
-            <p>younganiel@gmail.com</p>
-          </div>
-        </div>
+              <div class="social-proof">
+                <table role="presentation" class="stats-table" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td class="stat-cell">
+                      <span class="stat-number">250+</span>
+                      <span class="stat-label">Developers Placed</span>
+                    </td>
+                    <td class="stat-cell">
+                      <span class="stat-number">98%</span>
+                      <span class="stat-label">Job Success Rate</span>
+                    </td>
+                    <td class="stat-cell">
+                      <span class="stat-number">₦1.2M</span>
+                      <span class="stat-label">Average Salary</span>
+                    </td>
+                  </tr>
+                </table>
+              </div>
 
-        <div class="signature">
-          <p>Best regards,</p><br>
-          <p><strong>Gabriel Anie</strong><br>
-          <em>Lead Instructor & Senior Web Developer</em><br>
-          <em>Empowering the next generation of tech leaders</em></p>
-        </div>
+              <div class="testimonial">
+                <p class="testimonial-quote">
+                  "Gabriel's program is pure gold. I went from confused beginner to senior developer at Flutterwave in just 3 months. The mentorship alone was worth 10x the investment."
+                </p>
+                <div class="author-info">
+                  <h4>Adunni Okonkwo</h4>
+                  <p>Senior Frontend Developer, Flutterwave</p>
+                </div>
+              </div>
 
-        <div class="ps-section">
-          <p><strong>P.S.</strong> The most successful professionals in tech share one common trait: they invest in continuous learning and take decisive action when opportunities arise. This summer intensive represents a pivotal moment for your career trajectory.</p>
-        </div>
+              <div class="scarcity-bar">
+                <p class="scarcity-text">⏰ Only 18 spots left • Starts June 7th • Early bird ends Friday</p>
+              </div>
 
-      </div>
+              <div class="cta-section">
+                <h3 class="cta-title">Ready to Stop Struggling?</h3>
+                <p class="cta-subtitle">Join the program that actually gets you hired</p>
+                
+                <div class="cta-buttons">
+                  <a href="https://wa.me/2347052971057?text=Hi%20Gabriel,%20I'm%20ready%20to%20join%20the%20summer%20intensive%20program" class="cta-button cta-primary">
+                    🚀 Claim Your Spot
+                  </a>
+                  
+                  <a href="https://wa.me/2347052971057?text=Hi%20Gabriel,%20I'd%20like%20to%20see%20the%20full%20curriculum%20details" class="cta-button cta-secondary">
+                    📋 View Details
+                  </a>
+                </div>
+              </div>
 
-      <div class="footer">
-        <p class="footer-name">Gabriel Anie</p>
-        <p class="footer-title">Elite Web Development Instructor | Lagos, Nigeria</p>
-        <p class="footer-tagline">From Code to Career Excellence</p>
-      </div>
+              <p class="hook-text">
+                <strong>Still not sure?</strong> I'm offering free 20-minute career strategy calls this week. Let's figure out the fastest path to your first (or next) developer role.
+              </p>
 
-    </div>
-  </div>
+              <div class="contact-section">
+                <h4 class="contact-title">Let's Connect</h4>
+                
+                <table role="presentation" class="contact-table" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td class="contact-cell">
+                      <div class="contact-card">
+                        <span class="contact-icon">📱</span>
+                        <h4>WhatsApp</h4>
+                        <p>+234 705 297 1057</p>
+                      </div>
+                    </td>
+                    <td class="contact-cell">
+                      <div class="contact-card">
+                        <span class="contact-icon">📧</span>
+                        <h4>Email</h4>
+                        <p>younganiel@gmail.com</p>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
 
-  <!-- Gmail app fix -->
+              <div class="signature">
+                <p>Talk soon,</p><br>
+                <p><strong>Gabriel Anie</strong><br>
+                <em>Senior Web Developer & Career Accelerator</em><br>
+                <em>Turning code newbies into industry pros</em></p>
+              </div>
+
+              <div class="ps-section">
+                <p><strong>P.S.</strong> The developers who succeed fastest share one trait: they take action while others are still "thinking about it." This program fills up every single cohort.</p>
+              </div>
+
+            </td>
+          </tr>
+
+          <tr>
+            <td class="footer">
+              <p class="footer-name">Gabriel Anie</p>
+              <p class="footer-title">Senior Web Developer | Lagos, Nigeria</p>
+              <p class="footer-tagline">From Zero to Hired</p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Gmail fix -->
   <div class="gmail-fix">&nbsp;</div>
 </body>
 </html>
