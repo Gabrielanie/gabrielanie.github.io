@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/gabby.jpg">
     <title>Gabriel Anie - Full Stack Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -193,6 +192,7 @@
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
             transition: left 0.5s;
+            z-index: 1;
         }
 
         .cta-button:hover::before {
@@ -386,8 +386,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            color: white;
             position: relative;
             overflow: hidden;
         }
@@ -396,6 +394,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
         }
 
         .project-badges {
@@ -404,6 +407,7 @@
             right: 1rem;
             display: flex;
             gap: 0.5rem;
+            z-index: 2;
         }
 
         .project-badge {
@@ -795,7 +799,7 @@
                         <span class="project-badge">Full Stack</span>
                         <span class="project-badge">Wordpress</span>
                     </div>
-                    <i class="fas fa-shopping-cart"></i>
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="E-Commerce Platform">
                 </div>
                 <div class="project-content">
                     <h3>E-Commerce Platform</h3>
@@ -817,7 +821,7 @@
                         <span class="project-badge">Frontend</span>
                         <span class="project-badge">Vue.js</span>
                     </div>
-                    <i class="fas fa-chart-line"></i>
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Analytics Dashboard">
                 </div>
                 <div class="project-content">
                     <h3>Analytics Dashboard</h3>
@@ -840,14 +844,14 @@
                         <span class="project-badge">Full Stack</span>
                         <span class="project-badge">Next.js</span>
                     </div>
-                    <i class="fas fa-code"></i>
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="OnTheGo Mobile App">
                 </div>
                 <div class="project-content">
                     <h3>OnTheGo Mobile App</h3>
-<p>
-  A mobile platform that helps users find free Wi-Fi and nearby restaurants within major landmarks, 
-  making city navigation easier and more convenient.
-</p>
+                    <p>
+                      A mobile platform that helps users find free Wi-Fi and nearby restaurants within major landmarks, 
+                      making city navigation easier and more convenient.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-pill">ReactNativejs</span>
                         <span class="tech-pill">TypeScript</span>
