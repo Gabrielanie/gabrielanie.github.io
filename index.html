@@ -1,1100 +1,1020 @@
-<html lang="zxx">
-<!-- Mirrored from webtend.site/html/noxfolio_pre/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Feb 2024 10:34:33 GMT -->
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="description" content="">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel Anie - Full Stack Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- Title -->
-  <title>Gabriel Anie || Software Developer </title>
-  <!-- Favicon Icon -->
-  <link rel="shortcut icon" href="assets/images/Gabriel Anie Upload.jpg" type="image/x-icon">
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --code-gradient: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            --dark-bg: #0a0a0a;
+            --darker-bg: #050505;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --success: #48bb78;
+        }
 
-  <!-- Flaticon -->
-  <link rel="stylesheet" href="assets/css/flaticon.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="assets/css/fontawesome-5.14.0.min.css">
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <!-- Magnific Popup -->
-  <link rel="stylesheet" href="assets/css/magnific-popup.min.html">
-  <!-- Nice Select -->
-  <link rel="stylesheet" href="assets/css/nice-select.min.css">
-  <!-- Animate -->
-  <link rel="stylesheet" href="assets/css/animate.min.css">
-  <!-- Slick -->
-  <link rel="stylesheet" href="assets/css/slick.min.css">
-  <!-- Main Style -->
-  <link rel="stylesheet" href="assets/css/style.css">
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--darker-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
+        /* Animated background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(118, 75, 162, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(79, 172, 254, 0.1) 0%, transparent 50%);
+            animation: bgShift 20s ease-in-out infinite;
+        }
+
+        @keyframes bgShift {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(1deg); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 0.8rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        nav:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 0 2rem;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            min-height: 2.5rem;
+        }
+
+        .typewriter {
+            display: inline-block;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.2em;
+            background-color: #667eea;
+            margin-left: 2px;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .cta-button {
+            background: var(--primary-gradient);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            margin: 0.5rem;
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 1px solid var(--glass-border);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: var(--secondary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .about-image img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--primary-gradient);
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Skills Grid */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            animation: rotate 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill-category:hover::before {
+            opacity: 1;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-right: 1rem;
+            display: block;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .skill-category h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: var(--primary-gradient);
+            transform: translateY(-2px);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .project-image {
+            height: 200px;
+            background: var(--code-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-badges {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .project-badge {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.3rem 0.7rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-pill {
+            background: rgba(102, 126, 234, 0.2);
+            color: #667eea;
+            padding: 0.3rem 0.7rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .project-link:hover {
+            color: #764ba2;
+            transform: translateX(2px);
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--primary-gradient);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 1rem 2rem;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 3rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 3rem;
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .timeline-date {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 1.5rem;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 1.5rem;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+        }
+
+        .timeline h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 4rem 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .contact-link:hover {
+            background: var(--primary-gradient);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+                padding-left: 70px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: 50px;
+                right: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            nav {
+                padding: 0.5rem 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .skills-container,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                padding: 4rem 1rem;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-buttons {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
+<body>
+    <div class="bg-animation"></div>
+    
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-<body class="home-one">
-  <div class="page-wrapper">
-
-    <!-- Preloader -->
-    <!-- <div class="preloader"></div> -->
-
-    <!-- main header -->
-    <header class="main-header menu-absolute">
-      <!--Header-Upper-->
-      <div class="header-upper">
-        <div class="container container-1620 clearfix">
-
-          <div class="header-inner rel d-flex align-items-center">
-            <div class="logo-outer">
-              <div class="logo"><a href="index.html"><img src="assets/images/logos/logo.png" alt="Logo"
-                    title="Logo"></a></div>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Gabriel Anie</h1>
+            <p class="subtitle">
+                <span class="typewriter">Full Stack Developer & Frontend Specialist</span>
+                <span class="cursor"></span>
+            </p>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Building performant, scalable web applications with cutting-edge technologies and exceptional user experiences.
+            </p>
+            <div class="cta-buttons">
+                <a href="#projects" class="cta-button">View My Work</a>
+                <a href="#contact" class="cta-button secondary">Get In Touch</a>
             </div>
-
-            <div class="nav-outer clearfix mx-auto">
-              <!-- Main Menu -->
-              <nav class="main-menu navbar-expand-lg">
-                <div class="navbar-header">
-                  <div class="mobile-logo my-15">
-                      <a href="index.html">
-                           <img src="assets/images/logos/logo.png" alt="Logo" title="Logo">
-                      </a>
-                  </div>
-                  
-                   <!-- Toggle Button -->
-                   <button type="button" class="navbar-toggle me-4" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
-                       <span class="icon-bar"></span>
-                       <span class="icon-bar"></span>
-                       <span class="icon-bar"></span>
-                   </button>
-               </div>
-
-
-                <div class="navbar-collapse collapse clearfix">
-                  <ul class="navigation clearfix">
-                    <li><a href="index.html">Home</a>
-
-                    </li>
-                    <li><a href="about.html">about</a></li>
-                    <li><a href="services.html">services</a></li>
-                    <li class="dropdown">
-                      <a href="projects.html">projects</a>
-                    </li>
-                   
-                  
-                    <li><a href="contact.html">Contact</a></li>
-                  </ul>
-                </div>
-
-              </nav>
-              <!-- Main Menu End-->
-            </div>
-
-            <!-- Menu Button -->
-            <div class="menu-btns">
-              <!-- menu sidbar -->
-              <div class="menu-sidebar">
-                <button>
-                  <img src="assets/images/shape/sidebar-tottler.svg" alt="Toggler">
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-      <!--End Header Upper-->
-    </header>
-
-
-    <!--Form Back Drop-->
-    <div class="form-back-drop"></div>
-
-    <!-- Hidden Sidebar -->
-    <section class="hidden-bar">
-      <div class="inner-box text-center">
-        <div class="cross-icon"><span class="fa fa-times"></span></div>
-        <div class="title">
-          <h4>Get Appointment</h4>
+        <div class="scroll-indicator">
+            <span style="font-size: 1.5rem;">↓</span>
         </div>
-
-        <!--Appointment Form-->
-        <div class="appointment-form">
-          <form method="post" action="">
-            <div class="form-group">
-              <input type="text" name="text" value="" placeholder="Name" required="">
-            </div>
-            <div class="form-group">
-              <input type="email" name="email" value="" placeholder="Email Address" required="">
-            </div>
-            <div class="form-group">
-              <textarea placeholder="Message" rows="5"></textarea>
-            </div>
-            <div class="form-group">
-              <button type="submit" class="theme-btn">Submit now</button>
-            </div>
-          </form>
-        </div>
-
-        <!--Social Icons-->
-        <div class="social-style-one">
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-pinterest-p"></i></a>
-        </div>
-      </div>
     </section>
-    <!--End Hidden Sidebar -->
 
-
-    <!-- Hero Section Start -->
-    <section class="main-hero-area pt-150 pb-80 rel z-1">
-      <div class="container container-1620">
-        <div class="row align-items-center">
-          <div class="col-lg-4 col-sm-7">
-            <div class="hero-content rmb-55 wow fadeInUp delay-0-2s animated"
-              style="visibility: visible; animation-name: fadeInUp;">
-              <span class="h2">Hello, I’m</span>
-    <h1><b>Gabriel Anie</b> — Web Designer & Software Developer</h1>
-    <p>
-      I'm a creative and results-driven web designer and software developer, passionate about building user-centric, responsive, and high-performing websites and applications. I specialize in turning ideas into elegant digital experiences that not only look great but also function seamlessly across devices.
-    </p>
-    <p>
-      With a strong eye for design and a deep understanding of modern web technologies, I bring both aesthetics and functionality together to deliver value-driven solutions that meet client goals and exceed user expectations.
-    </p>
-              <div class="hero-btns">
-                <a href="https://wa.link/a01ai2" class="theme-btn">Hire Me <i class="far fa-angle-right"></i></a>
-                <a href="contact.html" class="read-more">Download Resume <i class="far fa-angle-right"></i></a>
-              </div>
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Gabriel Anie">
             </div>
-          </div>
-          <div class="col-lg-3 col-sm-5 order-lg-3">
-            <div class="hero-counter-wrap ms-lg-auto rmb-55 wow fadeInUp delay-0-4s animated"
-              style="visibility: visible; animation-name: fadeInUp;">
-              <div class="counter-item counter-text-wrap counted">
-                <span class="count-text plus" data-speed="3000" data-stop="5">5</span>
-                <span class="counter-title">Years Of Experience</span>
-              </div>
-              <div class="counter-item counter-text-wrap counted">
-                <span class="count-text k-plus" data-speed="3000" data-stop="12">21</span>
-                <span class="counter-title">Project Complete</span>
-              </div>
-              <div class="counter-item counter-text-wrap counted">
-                <span class="count-text percent" data-speed="3000" data-stop="99">99</span>
-                <span class="counter-title">Client Satisfactions</span>
-              </div>
+            <div class="about-content">
+                <p>Hello! I'm Gabriel, a passionate full-stack developer with a specialization in frontend technologies. I create digital experiences that are not only visually stunning but also highly functional and performant.</p>
+                <p>With over 5 years of experience in the industry, I've worked on everything from small business websites to large-scale enterprise applications. I believe in writing clean, maintainable code and staying on top of emerging technologies.</p>
+                <p>When I'm not coding, you can find me contributing to open-source projects, writing technical articles, or exploring the latest developments in web technology.</p>
             </div>
-          </div>
-          <div class="col-lg-5">
-            <div class="author-image-part wow fadeIn delay-0-3s animated"
-              style="visibility: visible; animation-name: fadeIn;">
-              <div class="bg-circle"></div>
-              <img src="assets/images/gabby.jpg" alt="Author">
-              <div class="progress-shape">
-                <img src="assets/images/hero/progress-shape.png" alt="Progress">
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-      <div class="bg-lines">
-        <span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-      </div>
     </section>
-    <!-- Hero Section End -->
 
-
-    <!-- About Area start -->
-    <section class="about-area rel z-1">
-      <div class="for-bgc-black py-130 rpy-100">
-        <div class="container">
-          <div class="row gap-100 align-items-center">
-            <div class="col-lg-7">
-              <div class="about-content-part rel z-2 rmb-55">
-                <div class="section-title mb-35 wow fadeInUp delay-0-2s animated"
-                  style="visibility: visible; animation-name: fadeInUp;">
-                  <span class="sub-title mb-15">About Me</span>
-                  <h2>Professional <span>Problem Solutions</span> For Digital Products</h2>
-                  <p>
-
-                    Unleash the full potential of your digital products! We identify and solve problems, crafting
-                    effective solutions that optimize performance and user experience. Our expert team tackles any
-                    challenge, ensuring your digital products function smoothly and deliver success.</p>
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category fade-in-up">
+                <div class="skill-header">
+                    <i class="skill-icon fas fa-code"></i>
+                    <h3>Frontend</h3>
                 </div>
-                <ul class="list-style-one two-column wow fadeInUp delay-0-2s animated"
-                  style="visibility: visible; animation-name: fadeInUp;">
-                  <li>Branding &amp; Design</li>
-                  <li>Digital Marketing</li>
-                  <li>Web Development</li>
-                  <li>Product Design</li>
-                  <li>Cloud Computing</li>
-                  <li>Digital Analyst</li>
-
-
-                </ul>
-                <div class="about-info-box mt-25 wow fadeInUp delay-0-2s animated"
-                  style="visibility: visible; animation-name: fadeInUp;">
-                  <div class="info-box-item">
-                    <i class="far fa-envelope"></i>
-                    <div class="content">
-                      <span>Email Us</span><br>
-                      <a href="mailto:younganiel@gmail.com"><span class="__cf_email__"
-                          >[email&nbsp;protected]</span></a>
-                    </div>
-                  </div>
-                  <div class="info-box-item">
-                    <i class="far fa-phone"></i>
-                    <div class="content">
-                      <span>Make A Call</span><br>
-                      <a href="https://wa.link/a01ai2">+2347052971057</a>
-                    </div>
-                  </div>
+                <div class="skill-list">
+                    <span class="skill-item">React</span>
+                    <span class="skill-item">Vue.js</span>
+                    <span class="skill-item">TypeScript</span>
+                    <span class="skill-item">Next.js</span>
+                    <span class="skill-item">Redux</span>
+                    <span class="skill-item">GraphQL</span>
+                    <span class="skill-item">Webpack</span>
+                    <span class="skill-item">SASS</span>
                 </div>
-              </div>
             </div>
-            <div class="col-lg-5">
-              <div class="about-image-part wow fadeInUp delay-0-3s animated"
-                style="visibility: visible; animation-name: fadeInUp;">
-                <img src="assets/images/Gabriel Anie Upload.jpg" alt="About Me">
-                <div class="about-btn btn-one wow fadeInRight delay-0-4s animated"
-                  style="visibility: visible; animation-name: fadeInRight;">
-                  <img src="assets/images/about/btn-image1.png" alt="Image">
-                  <h6>Experience Designer</h6>
-                  <i class="fas fa-arrow-right"></i>
+            <div class="skill-category fade-in-up">
+                <div class="skill-header">
+                    <i class="skill-icon fas fa-server"></i>
+                    <h3>Backend</h3>
                 </div>
-                <div class="about-btn btn-two wow fadeInRight delay-0-5s animated"
-                  style="visibility: visible; animation-name: fadeInRight;">
-                  <img src="assets/images/Gabriel Anie Upload.jpg" height="40" width="40" alt="Image">
-                  <h6>Gabriel Anie</h6>
-                  <i class="fas fa-arrow-right"></i>
+                <div class="skill-list">
+                    <span class="skill-item">Node.js</span>
+                    <span class="skill-item">Express</span>
+                    <span class="skill-item">Python</span>
+                    <span class="skill-item">Django</span>
+                    <span class="skill-item">PostgreSQL</span>
+                    <span class="skill-item">MongoDB</span>
+                    <span class="skill-item">Redis</span>
+                    <span class="skill-item">REST APIs</span>
                 </div>
-                <div class="dot-shape">
-                  <img src="assets/images/shape/about-dot.png" alt="Shape">
-                </div>
-              </div>
             </div>
-          </div>
+            <div class="skill-category fade-in-up">
+                <div class="skill-header">
+                    <i class="skill-icon fas fa-cloud"></i>
+                    <h3>DevOps & Tools</h3>
+                </div>
+                <div class="skill-list">
+                    <span class="skill-item">Docker</span>
+                    <span class="skill-item">AWS</span>
+                    <span class="skill-item">Git</span>
+                    <span class="skill-item">CI/CD</span>
+                    <span class="skill-item">Jest</span>
+                    <span class="skill-item">Cypress</span>
+                    <span class="skill-item">Webpack</span>
+                    <span class="skill-item">Vite</span>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="bg-lines">
-        <span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-      </div>
     </section>
-    <!-- About Area end -->
 
-
-    <!-- Resume Area start -->
-    <section class="resume-area pt-130 rpt-100 rel z-1">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3">
-            <div class="big-icon mt-85 rmt-0 rmb-55 wow fadeInUp delay-0-2s animated"
-              style="visibility: visible; animation-name: fadeInUp;">
-              <i class="flaticon-asterisk-1"></i>
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card fade-in-up">
+                <div class="project-image">
+                    <div class="project-badges">
+                        <span class="project-badge">Full Stack</span>
+                        <span class="project-badge">React</span>
+                    </div>
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="project-content">
+                    <h3>E-Commerce Platform</h3>
+                    <p>Modern shopping experience with real-time inventory, secure payments, and AI-powered recommendations.</p>
+                    <div class="project-tech">
+                        <span class="tech-pill">React</span>
+                        <span class="tech-pill">Node.js</span>
+                        <span class="tech-pill">MongoDB</span>
+                        <span class="tech-pill">Stripe API</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-lg-9">
-            <div class="row">
-              <div class="col-xl-8 col-lg-9">
-                <div class="section-title mb-60 wow fadeInUp delay-0-2s animated"
-                  style="visibility: visible; animation-name: fadeInUp;">
-                  <span class="sub-title mb-15">My Resume</span>
-                  <h2>Real <span>Problem Solutions</span> Experience</h2>
+            <div class="project-card fade-in-up">
+                <div class="project-image">
+                    <div class="project-badges">
+                        <span class="project-badge">Frontend</span>
+                        <span class="project-badge">Vue.js</span>
+                    </div>
+                    <i class="fas fa-chart-line"></i>
                 </div>
-              </div>
+                <div class="project-content">
+                    <h3>Analytics Dashboard</h3>
+                    <p>Real-time data visualization platform with interactive charts and custom reporting features.</p>
+                    <div class="project-tech">
+                        <span class="tech-pill">Vue.js</span>
+                        <span class="tech-pill">D3.js</span>
+                        <span class="tech-pill">WebSockets</span>
+                        <span class="tech-pill">Chart.js</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
             </div>
-            <div class="resume-items-wrap">
-              <div class="row justify-content-between">
-                <div class="col-xl-5 col-md-6">
-                  <div class="resume-item wow fadeInUp delay-0-3s animated"
-                    style="visibility: visible; animation-name: fadeInUp;">
-                    <div class="icon">
-                      <i class="far fa-arrow-right"></i>
+            <div class="project-card fade-in-up">
+                <div class="project-image">
+                    <div class="project-badges">
+                        <span class="project-badge">Full Stack</span>
+                        <span class="project-badge">Next.js</span>
                     </div>
-                    <div class="content">
-                      <span class="years">2023 - Present</span>
-                      <h4>Software Developer / Web Development Tutor / Ads Director</h4>
-                      <span class="company">Melodia Coding Academy</span>
-                    </div>
-                  </div>
+                    <i class="fas fa-music"></i>
                 </div>
-                <div class="col-xl-5 col-md-6">
-                  <div class="resume-item wow fadeInUp delay-0-4s animated"
-                    style="visibility: visible; animation-name: fadeInUp;">
-                    <div class="icon">
-                      <i class="far fa-arrow-right"></i>
+                <div class="project-content">
+                    <h3>Music Collaboration App</h3>
+                    <p>Platform for musicians to collaborate remotely with real-time audio streaming and project management.</p>
+                    <div class="project-tech">
+                        <span class="tech-pill">Next.js</span>
+                        <span class="tech-pill">WebRTC</span>
+                        <span class="tech-pill">PostgreSQL</span>
+                        <span class="tech-pill">Web Audio API</span>
                     </div>
-                    <div class="content">
-                      <span class="years">2020 - 2021</span>
-                      <h4>Junior Web Developer</h4>
-                      <span class="company">First Lincoln Technology</span>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
                     </div>
-                  </div>
                 </div>
-                <div class="col-xl-5 col-md-6">
-                  <div class="resume-item wow fadeInUp delay-0-2s animated"
-                    style="visibility: visible; animation-name: fadeInUp;">
-                    <div class="icon">
-                      <i class="far fa-arrow-right"></i>
-                    </div>
-                    <div class="content">
-                      <span class="years">2022</span>
-                      <h4>Web Developer</h4>
-                      <span class="company">Etuodi Advertising Agency</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-5 col-md-6">
-                  <div class="resume-item wow fadeInUp delay-0-4s animated"
-                    style="visibility: visible; animation-name: fadeInUp;">
-                    <div class="icon">
-                      <i class="far fa-arrow-right"></i>
-                    </div>
-                    <div class="content">
-                      <span class="years">2022 - 2023</span>
-                      <h4>Senior Web Developer</h4>
-                      <span class="company">Fast Plus Innovation</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-5 col-md-6">
-                  <div class="resume-item wow fadeInUp delay-0-4s animated"
-                    style="visibility: visible; animation-name: fadeInUp;">
-                    <div class="icon">
-                      <i class="far fa-arrow-right"></i>
-                    </div>
-                    <div class="content">
-                      <span class="years">2022 - 2023</span>
-                      <h4>Digital Analyst</h4>
-                      <span class="company">Medison Specialist Hospital</span>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="bg-lines">
-        <span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-      </div>
     </section>
-    <!-- Resume Area end -->
 
-
-    <!-- Services Area start -->
-    <section class="services-area pt-130 rpt-100 pb-100 rpb-70 rel z-1">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-xl-6 col-lg-8">
-            <div class="section-title text-center mb-60 wow fadeInUp delay-0-2s animated"
-              style="visibility: visible; animation-name: fadeInUp;">
-              <span class="sub-title mb-15">Popular Services</span>
-              <h2>My <span>Special Service</span> For your Business Development</h2>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="service-item wow fadeInUp delay-0-2s animated"
-              style="visibility: visible; animation-name: fadeInUp;">
-              <div class="number">01.</div>
-              <div class="content">
-                <h4>Brand Identity Design</h4>
-                <p> Create a unique and memorable visual language that defines your brand and resonates with your target
-                  audience.</p>
-              </div>
-              <a href="service-details.html" class="details-btn"><i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="service-item wow fadeInUp delay-0-4s animated"
-              style="visibility: visible; animation-name: fadeInUp;">
-              <div class="number">02.</div>
-              <div class="content">
-                <h4>Website Design</h4>
-                <p>Design user-friendly and visually appealing websites that effectively communicate your brand message
-                  and drive results.</p>
-              </div>
-              <a href="service-details.html" class="details-btn"><i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="service-item wow fadeInUp delay-0-2s animated"
-              style="visibility: visible; animation-name: fadeInUp;">
-              <div class="number">03.</div>
-              <div class="content">
-                <h4>Data Analyst</h4>
-                <p>Gain valuable insights from your data to inform strategic decisions, improve marketing campaigns, and
-                  optimize website performance.</p>
-              </div>
-              <a href="service-details.html" class="details-btn"><i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="service-item wow fadeInUp delay-0-4s animated"
-              style="visibility: visible; animation-name: fadeInUp;">
-              <div class="number">04.</div>
-              <div class="content">
-                <h4>Business Strategies</h4>
-                <p> Develop data-driven business plans to achieve your goals, increase brand awareness, and drive
-                  sustainable growth.</p>
-              </div>
-              <a href="service-details.html" class="details-btn"><i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="service-item wow fadeInUp delay-0-2s animated"
-              style="visibility: visible; animation-name: fadeInUp;">
-              <div class="number">05.</div>
-              <div class="content">
-                <h4>Website Development</h4>
-                <p>Build and implement functional and scalable websites that are tailored to your specific needs and
-                  objectives.</p>
-              </div>
-              <a href="service-details.html" class="details-btn"><i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="service-item wow fadeInUp delay-0-4s animated"
-              style="visibility: visible; animation-name: fadeInUp;">
-              <div class="number">06.</div>
-              <div class="content">
-                <h4>SEO &amp; Digital Marketing</h4>
-                <p> Enhance your website's search engine ranking and implement targeted digital marketing strategies to
-                  reach your target audience and achieve your marketing goals.</p>
-              </div>
-              <a href="service-details.html" class="details-btn"><i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="bg-lines">
-        <span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-      </div>
-    </section>
-    <!-- Services Area end -->
-
-
-    <!-- Skill Area start -->
-    <section class="skill-area rel z-1">
-      <div class="for-bgc-black pt-130 rpt-100 pb-100 rpb-70">
-        <div class="container">
-          <div class="row gap-100">
-            <div class="col-lg-5">
-              <div class="skill-content-part rel z-2 rmb-55 wow fadeInUp delay-0-2s animated"
-                style="visibility: visible; animation-name: fadeInUp;">
-                <div class="section-title mb-40">
-                  <span class="sub-title mb-15">My Skills</span>
-                  <h2>Let’s Explore Popular <span>Skills &amp; Experience</span></h2>
-                  <hr width="20%" height="60" style="color: red;">
-                  <p>Craft your web development expertise! Dive into the in-demand programming languages, frameworks,
-                    and tools used to build cutting-edge websites. Explore how I can leverage these skills to bring your
-                    vision to life.</p>
+    <section id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item fade-in-up">
+                <div class="timeline-content">
+                    <span class="timeline-date">2021 - Present</span>
+                    <h3>Senior Full Stack Developer</h3>
+                    <p>TechInnovate Solutions</p>
+                    <p>Led frontend architecture decisions, implemented CI/CD pipelines, and mentored junior developers while delivering complex web applications.</p>
                 </div>
-                <a href="about.html" class="theme-btn">Learn More <i class="far fa-angle-right"></i></a>
-              </div>
             </div>
-            <div class="col-lg-7">
-              <div class="skill-items-wrap">
-                <div class="row">
-                  <div class="col-xl-3 col-lg-4 col-md-3 col-sm-4 col-6">
-                    <div class="skill-item wow fadeInUp delay-0-2s animated"
-                      style="visibility: visible; animation-name: fadeInUp;">
-                      <img src="assets/images/skills/skill1.png" alt="Skill">
-                      <h5>Figma</h5>
-                      <span class="percent">95%</span>
-                    </div>
-                  </div>
-                  <div class="col-xl-3 col-lg-4 col-md-3 col-sm-4 col-6">
-                    <div class="skill-item wow fadeInUp delay-0-3s animated"
-                      style="visibility: visible; animation-name: fadeInUp;">
-                      <img src="assets/images/skills/pngwing.com.png" width="55" height="55" alt="Skill">
-                      <h5>HTML</h5>
-                      <span class="percent">97%</span>
-                    </div>
-                  </div>
-
-
-                  <div class="col-xl-3 col-lg-4 col-md-3 col-sm-4 col-6">
-                    <div class="skill-item wow fadeInUp delay-0-2s animated"
-                      style="visibility: visible; animation-name: fadeInUp;">
-                      <img src="assets/images/skills//pngwing.com (2).png" height="55" width="55" alt="Skill">
-                      <h5>CSS</h5>
-                      <span class="percent">95%</span>
-                    </div>
-                  </div>
-                  <div class="col-xl-3 col-lg-4 col-md-3 col-sm-4 col-6">
-                    <div class="skill-item wow fadeInUp delay-0-3s animated"
-                      style="visibility: visible; animation-name: fadeInUp;">
-                      <img src="assets/images/skills/pngwing.com (3).png" width="55" height="55" alt="Skill">
-                      <h5>JavaScript</h5>
-                      <span class="percent">86%</span>
-                    </div>
-                  </div>
-                  <div class="col-xl-3 col-lg-4 col-md-3 col-sm-4 col-6">
-                    <div class="skill-item wow fadeInUp delay-0-5s animated"
-                      style="visibility: visible; animation-name: fadeInUp;">
-                      <img src="assets/images/skills/pngwing.com (4).png" height="55" width="55" alt="Skill">
-                      <h5>BOOTSTRAP</h5>
-                      <span class="percent">95%</span>
-                    </div>
-                  </div>
-                  <div class="col-xl-3 col-lg-4 col-md-3 col-sm-4 col-6">
-                    <div class="skill-item wow fadeInUp delay-0-5s animated"
-                      style="visibility: visible; animation-name: fadeInUp;">
-                      <img src="assets/images/skills/pngwing.com (1).png" height="55" width="55" alt="Skill">
-                      <h5>PHP</h5>
-                      <span class="percent">70%</span>
-                    </div>
-                  </div>
-                  <div class="col-xl-3 col-lg-4 col-md-3 col-sm-4 col-6">
-                    <div class="skill-item wow fadeInUp delay-0-4s animated"
-                      style="visibility: visible; animation-name: fadeInUp;">
-                      <img src="assets/images/skills/pngwing.com (5).png" width="55" height="55" alt="Skill">
-                      <h5>Node.JS</h5>
-                      <span class="percent">75%</span>
-                    </div>
-                  </div>
-                  <div class="col-xl-3 col-lg-4 col-md-3 col-sm-4 col-6">
-                    <div class="skill-item wow fadeInUp delay-0-5s animated"
-                      style="visibility: visible; animation-name: fadeInUp;">
-                      <img src="assets/images/skills/pngwing.com (6).png" width="55" height="55" alt="Skill">
-                      <h5>AWS</h5>
-                      <span class="percent">67%</span>
-                    </div>
-                  </div>
-                  <div class="col-xl-3 col-lg-4 col-md-3 col-sm-4 col-6">
-                    <div class="skill-item wow fadeInUp delay-0-5s animated"
-                      style="visibility: visible; animation-name: fadeInUp;">
-                      <img src="assets/images/skills/pngwing.com (7).png" width="55" height="55" alt="Skill">
-                      <h5>MySQL</h5>
-                      <span class="percent">75%</span>
-                    </div>
-                  </div>
-                  <div class="col-xl-3 col-lg-4 col-md-3 col-sm-4 col-6">
-                    <div class="skill-item wow fadeInUp delay-0-4s animated"
-                      style="visibility: visible; animation-name: fadeInUp;">
-                      <img src="assets/images/skills/skill3.png" alt="Skill">
-                      <h5>Photoshop</h5>
-                      <span class="percent">93%</span>
-                    </div>
-                  </div>
+            <div class="timeline-item fade-in-up">
+                <div class="timeline-content">
+                    <span class="timeline-date">2019 - 2021</span>
+                    <h3>Frontend Developer</h3>
+                    <p>DigitalCreate Studio</p>
+                    <p>Specialized in building responsive and accessible user interfaces with React and Vue.js for various client projects.</p>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="bg-lines">
-        <span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-      </div>
-    </section>
-    <!-- Skill Area end -->
-
-
-    <!-- Projects Area start -->
-    <section class="projects-area pt-130 rpt-100 pb-100 rpb-70 rel z-1">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-xl-12">
-            <div class="section-title text-center mb-60 wow fadeInUp delay-0-2s animated"
-              style="visibility: visible; animation-name: fadeInUp;">
-              <span class="sub-title mb-15">Latest Works</span>
-              <h2>Explore My Popular <span>Projects</span></h2>
-            </div>
-          </div>
-        </div>
-        <div class="row align-items-center pb-25">
-          <div class="col-lg-6">
-            <div class="project-image wow fadeInLeft delay-0-2s animated"
-              style="visibility: visible; animation-name: fadeInLeft;">
-              <img src="assets/images/projects/Mockup2.jpg" alt="Project">
-            </div>
-          </div>
-          <div class="col-xl-5 col-lg-6">
-            <div class="project-content wow fadeInRight delay-0-2s animated"
-              style="visibility: visible; animation-name: fadeInRight;">
-              <span class="sub-title">Product Design</span>
-              <h2><a href="project-details.html">Web Application Design</a></h2>
-              <p></p>
-              <a href="project-details.html" class="details-btn"><i class="far fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="row align-items-center pb-25">
-          <div class="col-lg-6 order-lg-2">
-            <div class="project-image wow fadeInLeft delay-0-2s animated"
-              style="visibility: visible; animation-name: fadeInLeft;">
-              <img src="assets/images/projects/project2.jpg" alt="Project">
-            </div>
-          </div>
-          <div class="col-xl-5 col-lg-6 ms-auto">
-            <div class="project-content wow fadeInRight delay-0-2s animated"
-              style="visibility: visible; animation-name: fadeInRight;">
-              <span class="sub-title">Product Design</span>
-              <h2><a href="project-details.html">Website Makeup Design</a></h2>
-              <p>Sed ut perspiciatis unde omnin natus totam rem aperiam eaque inventore veritatis
-                architecto beatae</p>
-              <a href="project-details.html" class="details-btn"><i class="far fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="row align-items-center pb-25">
-          <div class="col-lg-6">
-            <div class="project-image wow fadeInLeft delay-0-2s animated"
-              style="visibility: visible; animation-name: fadeInLeft;">
-              <img src="assets/images/projects/project3.jpg" alt="Project">
-            </div>
-          </div>
-          <div class="col-xl-5 col-lg-6">
-            <div class="project-content wow fadeInRight delay-0-2s animated"
-              style="visibility: visible; animation-name: fadeInRight;">
-              <span class="sub-title">Product Design</span>
-              <h2><a href="project-details.html">Brand Identity and Motion Design</a></h2>
-              <p>Sed ut perspiciatis unde omnin natus totam rem aperiam eaque inventore veritatis
-                architecto beatae</p>
-              <a href="project-details.html" class="details-btn"><i class="far fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="row align-items-center pb-25">
-          <div class="col-lg-6 order-lg-2">
-            <div class="project-image wow fadeInLeft delay-0-2s" style="visibility: hidden; animation-name: none;">
-              <img src="assets/images/projects/project4.jpg" alt="Project">
-            </div>
-          </div>
-          <div class="col-xl-5 col-lg-6 ms-auto">
-            <div class="project-content wow fadeInRight delay-0-2s" style="visibility: hidden; animation-name: none;">
-              <span class="sub-title">Product Design</span>
-              <h2><a href="project-details.html">Mobile Application Development</a></h2>
-              <p>Sed ut perspiciatis unde omnin natus totam rem aperiam eaque inventore veritatis
-                architecto beatae</p>
-              <a href="project-details.html" class="details-btn"><i class="far fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="project-btn text-center wow fadeInUp delay-0-2s" style="visibility: hidden; animation-name: none;">
-          <a href="projects.html" class="theme-btn">View More Projects <i class="far fa-angle-right"></i></a>
-        </div>
-      </div>
-      <div class="bg-lines">
-        <span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-      </div>
-    </section>
-    <!-- Projects Area end -->
-
-
-    <!-- Testimonial Area start -->
-    <!-- <section class="testimonials-area rel z-1">
-          <div class="for-bgc-black py-130 rpy-100">
-              <div class="container">
-                  <div class="row gap-90">
-                      <div class="col-lg-4">
-                          <div class="testimonials-content-part rel z-2 rmb-55 wow fadeInUp delay-0-2s">
-                              <div class="section-title mb-40">
-                                  <span class="sub-title mb-15">Clients Testimonials</span>
-                                  <h2>I’ve 1253+ Clients <span>Feedback</span></h2>
-                                  <p>Sed ut perspiciatis unde omnin natus totam rem aperiam eaque inventore veritatis
-                                  </p>
-                              </div>
-                              <div class="slider-arrows">
-                                  <button class="testimonial-prev"><i class="fal fa-arrow-left"></i></button>
-                                  <button class="testimonial-next"><i class="fal fa-arrow-right"></i></button>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-lg-8">
-                          <div class="testimonials-wrap">
-                              <div class="testimonial-item wow fadeInUp delay-0-3s">
-                                  <div class="author">
-                                      <img src="assets/images/testimonials/author1.png" alt="Author">
-                                  </div>
-                                  <div class="text">At vero eoset accusamus et iusto odio dignissimos ducimus quie
-                                      blanditiis praesentium voluptatum deleniti atque corrupti dolores</div>
-                                  <div class="testi-des">
-                                      <h5>Rodolfo E. Shannon</h5>
-                                      <span>CEO & Founder</span>
-                                  </div>
-                              </div>
-                              <div class="testimonial-item wow fadeInUp delay-0-4s">
-                                  <div class="author">
-                                      <img src="assets/images/testimonials/author2.png" alt="Author">
-                                  </div>
-                                  <div class="text">Nam libero tempore cumsoluta nobise est eligendi optio cumque
-                                      nihil impedit quominus idquod maxime placeat facere possimus</div>
-                                  <div class="testi-des">
-                                      <h5>Kenneth J. Dutton</h5>
-                                      <span>Web Developer</span>
-                                  </div>
-                              </div>
-                              <div class="testimonial-item wow fadeInUp delay-0-2s">
-                                  <div class="author">
-                                      <img src="assets/images/testimonials/author1.png" alt="Author">
-                                  </div>
-                                  <div class="text">At vero eoset accusamus et iusto odio dignissimos ducimus quie
-                                      blanditiis praesentium voluptatum deleniti atque corrupti dolores</div>
-                                  <div class="testi-des">
-                                      <h5>Rodolfo E. Shannon</h5>
-                                      <span>CEO & Founder</span>
-                                  </div>
-                              </div>
-                              <div class="testimonial-item wow fadeInUp delay-0-2s">
-                                  <div class="author">
-                                      <img src="assets/images/testimonials/author2.png" alt="Author">
-                                  </div>
-                                  <div class="text">Nam libero tempore cumsoluta nobise est eligendi optio cumque
-                                      nihil impedit quominus idquod maxime placeat facere possimus</div>
-                                  <div class="testi-des">
-                                      <h5>Kenneth J. Dutton</h5>
-                                      <span>Web Developer</span>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="bg-lines">
-              <span></span><span></span>
-              <span></span><span></span>
-              <span></span><span></span>
-              <span></span><span></span>
-              <span></span><span></span>
-          </div>
-      </section> -->
-    <!-- Testimonial Area end -->
-
-
-    <!-- Pricing Area start -->
-    <!-- <section class="pricing-area pt-130 rpt-100 rel z-1">
-          <div class="container">
-              <div class="row justify-content-center">
-                  <div class="col-xl-12">
-                      <div class="section-title text-center mb-60 wow fadeInUp delay-0-2s">
-                          <span class="sub-title mb-15">Pricing Package</span>
-                          <h2>Amazing <span>Pricing</span> For your Projects</h2>
-                      </div>
-                  </div>
-              </div>
-              <div class="row justify-content-center">
-                  <div class="col-lg-4 col-md-6">
-                      <div class="pricing-item wow fadeInUp delay-0-2s">
-                          <div class="pricing-header">
-                              <h4 class="title">Basic Plan</h4>
-                              <p class="save-percent">Try Out Basic Plan Save <span>20%</span></p>
-                              <span class="price">19.95</span>
-                          </div>
-                          <div class="pricing-details">
-                              <p>Sed perspiciatis unde natus totam see rem aperiam eaque inventore</p>
-                              <ul>
-                                  <li>Website Design</li>
-                                  <li>Mobile Apps Design</li>
-                                  <li>Product Design</li>
-                                  <li class="unable">Digital Marketing</li>
-                                  <li class="unable">Custom Support</li>
-                              </ul>
-                              <a href="contact.html" class="theme-btn">Choose Package <i
-                                      class="far fa-angle-right"></i></a>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6">
-                      <div class="pricing-item wow fadeInUp delay-0-4s">
-                          <div class="pricing-header">
-                              <h4 class="title">Standard Plan</h4>
-                              <p class="save-percent">Try Out Basic Plan Save <span>35%</span></p>
-                              <span class="price">19.95</span>
-                          </div>
-                          <div class="pricing-details">
-                              <p>Sed perspiciatis unde natus totam see rem aperiam eaque inventore</p>
-                              <ul>
-                                  <li>Website Design</li>
-                                  <li>Mobile Apps Design</li>
-                                  <li>Product Design</li>
-                                  <li>Digital Marketing</li>
-                                  <li>Custom Support</li>
-                              </ul>
-                              <a href="contact.html" class="theme-btn">Choose Package <i
-                                      class="far fa-angle-right"></i></a>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6">
-                      <div class="pricing-item wow fadeInUp delay-0-6s">
-                          <div class="pricing-header">
-                              <h4 class="title">Basic Plan</h4>
-                              <p class="save-percent">Try Out Basic Plan Save <span>45%</span></p>
-                              <span class="price">19.95</span>
-                          </div>
-                          <div class="pricing-details">
-                              <p>Sed perspiciatis unde natus totam see rem aperiam eaque inventore</p>
-                              <ul>
-                                  <li>Website Design</li>
-                                  <li>Mobile Apps Design</li>
-                                  <li>Product Design</li>
-                                  <li>Digital Marketing</li>
-                                  <li>Custom Support</li>
-                              </ul>
-                              <a href="contact.html" class="theme-btn">Choose Package <i
-                                      class="far fa-angle-right"></i></a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="bg-lines">
-              <span></span><span></span>
-              <span></span><span></span>
-              <span></span><span></span>
-              <span></span><span></span>
-              <span></span><span></span>
-          </div>
-      </section> -->
-    <!-- Pricing Area end -->
-
-
-    <!-- Contact Area start -->
-    <section class="contact-area pt-95 pb-130 rpt-70 rpb-100 rel z-1">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="contact-content-part pt-5 rpt-0 rmb-55 wow fadeInUp delay-0-2s"
-              style="visibility: hidden; animation-name: none;">
-              <div class="section-title mb-40">
-                <span class="sub-title mb-15">Get In Touch</span>
-                <h2>Let’s Talk For your <span>Next Projects</span></h2>
-                <p>Sed ut perspiciatis unde omnin natus totam rem aperiam eaque inventore veritatis</p>
-              </div>
-              <ul class="list-style-two">
-                <li>5+ Years Of Experience</li>
-                <li>Professional Web Designer</li>
-                <li>Business Strategies</li>
-                <li>Branding</li>
-                <li>Digital Analyst</li>
-                <li>Custom Design Support</li>
-
-
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-8">
-            <div class="contact-form contact-form-wrap form-style-one wow fadeInUp delay-0-4s"
-              style="visibility: hidden; animation-name: none;">
-              <form id="contactForm" class="contactForm" name="contactForm" action="" method="post" novalidate="true">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="name">Full Name</label>
-                      <input type="text" id="name" name="name" class="form-control" value="" placeholder="Gabriel Anie"
-                        required="" data-error="Please enter your Name">
-                      <label for="name" class="for-icon"><i class="far fa-user"></i></label>
-                      <div class="help-block with-errors"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="email">Email Address</label>
-                      <input type="email" id="email" name="email" class="form-control" value=""
-                        placeholder="younganiel@gmail.com" required="" data-error="Please enter your Email">
-                      <label for="email" class="for-icon"><i class="far fa-envelope"></i></label>
-                      <div class="help-block with-errors"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="phone_number">Phone Number</label>
-                      <input type="text" id="phone_number" name="phone_number" class="form-control" value=""
-                        placeholder="+2347052971057" required="" data-error="Please enter your Phone Number">
-                      <label for="phone_number" class="for-icon"><i class="far fa-phone"></i></label>
-                      <div class="help-block with-errors"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="subject">Subject</label>
-                      <input type="text" id="subject" name="subject" class="form-control" value="" placeholder="Subject"
-                        required="" data-error="Please enter your Subject">
-                      <label for="subject" class="for-icon"><i class="far fa-text"></i></label>
-                      <div class="help-block with-errors"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="message">Message</label>
-                      <textarea name="message" id="message" class="form-control" rows="4" placeholder="write message"
-                        required="" data-error="Please enter your Message"></textarea>
-                      <div class="help-block with-errors"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group mb-0">
-                      <button type="submit" class="theme-btn disabled"
-                        style="pointer-events: all; cursor: pointer;">Send Us Message <i
-                          class="far fa-angle-right"></i></button>
-                      <div id="msgSubmit" class="hidden"></div>
-                    </div>
-                  </div>
+            <div class="timeline-item fade-in-up">
+                <div class="timeline-content">
+                    <span class="timeline-date">2017 - 2019</span>
+                    <h3>Web Developer</h3>
+                    <p>WebCraft Inc.</p>
+                    <p>Developed and maintained websites and web applications using JavaScript, PHP, and various CMS platforms.</p>
                 </div>
-              </form>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="bg-lines">
-        <span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-      </div>
     </section>
-    <!-- Contact Area end -->
 
+    <div class="contact" id="contact">
+        <h2 class="section-title">Let's Work Together</h2>
+        <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem;">
+            I'm currently available for freelance projects and full-time opportunities.
+        </p>
+        <div class="contact-links">
+            <a href="mailto:gabriel@example.com" class="contact-link">
+                <i class="fas fa-envelope"></i> Email Me
+            </a>
+            <a href="https://linkedin.com/in/gabrielanie" class="contact-link">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/gabrielanie" class="contact-link">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="#" class="contact-link">
+                <i class="fas fa-file-alt"></i> Resume
+            </a>
+        </div>
+    </div>
 
-    <!-- Blog Area start -->
+    <footer>
+        <p>© 2023 Gabriel Anie. All rights reserved.</p>
+    </footer>
 
-    <!-- Client Log end -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-    <!-- footer area start -->
-    <footer class="main-footer rel z-1">
-      <div class="footer-top-wrap bgc-black pt-100 pb-75">
-          <div class="container">
-              <div class="row">
-                  <div class="col-lg-2 col-md-12">
-                      <div class="footer-widget widget_logo wow fadeInUp delay-0-2s">
-                          <div class="footer-logo">
-                              <a href="index.html"><img src="assets/images/logos/logo.png" alt="Logo"></a>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-7 col-md-7">
-                      <div class="footer-widget widget_nav_menu wow fadeInUp delay-0-4s">
-                          <h6 class="footer-title">Quick Link</h6>
-                          <ul>
-                              <li><a href="services.html">Service</a></li>
-                              <li><a href="projects.html">Projects</a></li>
-\                                    <li><a href="contact.html">Contact</a></li>
-                          </ul>
-                      </div>
-                      <div class="footer-widget widget_newsletter wow fadeInUp delay-0-4s">
-                          <form action="#">
-                              <label for="email-address"><i class="far fa-envelope"></i></label>
-                              <input id="email-address" type="email" placeholder="Email Address" required>
-                              <button>Sign Up <i class="far fa-angle-right"></i></button>
-                          </form>
-                      </div>
-                  </div>
-                  <div class="col-lg-3 col-md-5">
-                      <div class="footer-widget widget_contact_info wow fadeInUp delay-0-6s">
-                          <h6 class="footer-title">Address</h6>
-                          <ul>
-                              <li><i class="far fa-map-marker-alt"></i>Surulere, Lagos, Nigeria
-                              </li>
-                              <li><i class="far fa-envelope"></i> <a 
-                                      href="mailto:younganiel@gmail.com"><span
-                                          class="__cf_email__">[email&#160;protected]</span></a>
-                              </li>
-                              <li><i class="far fa-phone"></i> <a href="https://wa.link/a01ai2">+2347052971057
-                                      </a></li>
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="footer-bottom pt-20 pb-5 rpt-25">
-          <div class="container">
-              <div class="row">
-                  <div class="col-lg-6">
-                      <div class="copyright-text">
-                          <p>Copyright @2024, <a href="index.html">Gabrielanie</a> All Rights Reserved</p>
-                      </div>
-                  </div>
-                  <div class="col-lg-6 text-lg-end">
-                      <ul class="footer-bottom-nav">
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Instagram</a></li>
-                          
-                          <li><a href="https://www.linkedin.com/in/gabriel-anie-85974616b/">LinkedIn</a></li>
-                      </ul>
-                  </div>
-              </div>
-              <!-- Scroll Top Button -->
-              <button class="scroll-top scroll-to-target" data-target="html"><span
-                      class="fas fa-angle-double-up"></span></button>
-          </div>
-          <div class="bg-lines">
-              <span></span><span></span>
-              <span></span><span></span>
-              <span></span><span></span>
-              <span></span><span></span>
-              <span></span><span></span>
-          </div>
-      </div>
-  </footer>
-    <!-- footer area end -->
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
 
-  </div>
-  <!--End pagewrapper-->
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
 
+        // Dynamic typing effect for hero subtitle
+        const subtitle = document.querySelector('.typewriter');
+        const texts = [
+            'Full Stack Developer & Frontend Specialist',
+            'React & Vue.js Expert',
+            'UI/UX Enthusiast',
+            'Problem Solver'
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingDelay = 100;
+        let deletingDelay = 50;
+        let pauseDelay = 2000;
 
-  <!-- Jquery -->
-  <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-  <script src="assets/js/jquery-3.6.0.min.js"></script>
-  <!-- Bootstrap -->
-  <script src="assets/js/bootstrap.min.js"></script>
-  <!-- Appear Js -->
-  <script src="assets/js/appear.min.js"></script>
-  <!-- Slick -->
-  <script src="assets/js/slick.min.js"></script>
-  <!-- Nice Select -->
-  <script src="assets/js/jquery.nice-select.min.js"></script>
-  <!-- Image Loader -->
-  <script src="assets/js/imagesloaded.pkgd.min.js"></script>
-  <!-- Isotope -->
-  <script src="assets/js/isotope.pkgd.min.js"></script>
-  <!--  WOW Animation -->
-  <script src="assets/js/wow.min.js"></script>
-  <!-- Custom script -->
-  <script src="assets/js/script.js"></script>
+        function type() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                subtitle.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+                typingDelay = deletingDelay;
+            } else {
+                subtitle.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+                typingDelay = 100;
+            }
+            
+            if (!isDeleting && charIndex === currentText.length) {
+                isDeleting = true;
+                typingDelay = pauseDelay;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                typingDelay = 500;
+            }
+            
+            setTimeout(type, typingDelay);
+        }
 
-  <!-- For Contact Form -->
-  <script src="assets/js/jquery.ajaxchimp.min.js"></script>
-  <script src="assets/js/form-validator.min.js"></script>
-  <script src="assets/js/contact-form-script.js"></script>
+        // Start typing effect after page load
+        setTimeout(type, 1000);
 
+        // Parallax effect for background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            const bgElement = document.querySelector('.bg-animation');
+            bgElement.style.transform = `translateY(${rate}px) scale(1.1)`;
+        });
 
-
-
-
+        // Add hover effects to project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
 </body>
-<!-- Mirrored from webtend.site/html/noxfolio_pre/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Feb 2024 10:34:42 GMT -->
-
 </html>
