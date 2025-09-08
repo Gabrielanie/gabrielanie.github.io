@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Chen - Web Designer & Developer</title>
+    <title>Gabriel Anie - Full Stack Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -15,18 +16,22 @@
             --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --code-gradient: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
             --dark-bg: #0a0a0a;
+            --darker-bg: #050505;
             --card-bg: rgba(255, 255, 255, 0.05);
             --text-primary: #ffffff;
             --text-secondary: #a0a0a0;
             --glass-border: rgba(255, 255, 255, 0.1);
+            --success: #48bb78;
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--dark-bg);
+            background: var(--darker-bg);
             color: var(--text-primary);
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
         /* Animated background */
@@ -79,6 +84,7 @@
             font-weight: 500;
             position: relative;
             transition: all 0.3s ease;
+            font-size: 0.95rem;
         }
 
         nav a:hover {
@@ -113,7 +119,7 @@
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             animation: fadeInUp 1s ease 0.2s both;
         }
 
@@ -133,6 +139,26 @@
             color: var(--text-secondary);
             margin-bottom: 2rem;
             font-weight: 300;
+            min-height: 2.5rem;
+        }
+
+        .typewriter {
+            display: inline-block;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.2em;
+            background-color: #667eea;
+            margin-left: 2px;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
 
         .cta-button {
@@ -149,6 +175,12 @@
             display: inline-block;
             position: relative;
             overflow: hidden;
+            margin: 0.5rem;
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 1px solid var(--glass-border);
         }
 
         .cta-button::before {
@@ -203,15 +235,55 @@
             background-clip: text;
         }
 
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .about-image img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--primary-gradient);
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
         /* Skills Grid */
-        .skills-grid {
+        .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .skill-card {
+        .skill-category {
             background: var(--card-bg);
             backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
@@ -222,7 +294,7 @@
             overflow: hidden;
         }
 
-        .skill-card::before {
+        .skill-category::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -235,30 +307,53 @@
             transition: opacity 0.3s ease;
         }
 
-        .skill-card:hover::before {
+        .skill-category:hover::before {
             opacity: 1;
         }
 
-        .skill-card:hover {
+        .skill-category:hover {
             transform: translateY(-5px);
             border-color: rgba(102, 126, 234, 0.3);
         }
 
-        .skill-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
+        .skill-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
         }
 
-        .skill-card h3 {
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-right: 1rem;
+            display: block;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .skill-category h3 {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
             color: var(--text-primary);
         }
 
-        .skill-card p {
-            color: var(--text-secondary);
-            line-height: 1.6;
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: var(--primary-gradient);
+            transform: translateY(-2px);
         }
 
         /* Projects Grid */
@@ -286,12 +381,37 @@
 
         .project-image {
             height: 200px;
-            background: var(--accent-gradient);
+            background: var(--code-gradient);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3rem;
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-badges {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .project-badge {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.3rem 0.7rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            backdrop-filter: blur(10px);
         }
 
         .project-content {
@@ -310,6 +430,21 @@
             line-height: 1.6;
         }
 
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-pill {
+            background: rgba(102, 126, 234, 0.2);
+            color: #667eea;
+            padding: 0.3rem 0.7rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+        }
+
         .project-links {
             display: flex;
             gap: 1rem;
@@ -320,11 +455,101 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
         }
 
         .project-link:hover {
             color: #764ba2;
             transform: translateX(2px);
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--primary-gradient);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 1rem 2rem;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 3rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 3rem;
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .timeline-date {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 1.5rem;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 1.5rem;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+        }
+
+        .timeline h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
         }
 
         /* Contact Section */
@@ -365,6 +590,13 @@
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
 
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -388,6 +620,34 @@
         }
 
         /* Responsive */
+        @media (max-width: 968px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+                padding-left: 70px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: 50px;
+                right: auto;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -405,7 +665,7 @@
                 gap: 1rem;
             }
             
-            .skills-grid,
+            .skills-container,
             .projects-grid {
                 grid-template-columns: 1fr;
             }
@@ -418,6 +678,11 @@
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .cta-buttons {
+                display: flex;
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -428,16 +693,27 @@
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Alex Chen</h1>
-            <p class="subtitle">Crafting digital experiences that captivate and convert</p>
-            <a href="#projects" class="cta-button">View My Work</a>
+            <h1>Gabriel Anie</h1>
+            <p class="subtitle">
+                <span class="typewriter">Full Stack Developer & Frontend Specialist</span>
+                <span class="cursor"></span>
+            </p>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Building performant, scalable web applications with cutting-edge technologies and exceptional user experiences.
+            </p>
+            <div class="cta-buttons">
+                <a href="#projects" class="cta-button">View My Work</a>
+                <a href="#contact" class="cta-button secondary">Get In Touch</a>
+            </div>
         </div>
         <div class="scroll-indicator">
             <span style="font-size: 1.5rem;">↓</span>
@@ -445,22 +721,69 @@
     </section>
 
     <section id="about">
-        <h2 class="section-title">What I Do</h2>
-        <div class="skills-grid">
-            <div class="skill-card fade-in-up">
-                <span class="skill-icon">🎨</span>
-                <h3>UI/UX Design</h3>
-                <p>Creating intuitive and visually stunning interfaces that users love to interact with. From wireframes to high-fidelity prototypes.</p>
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Gabriel Anie">
             </div>
-            <div class="skill-card fade-in-up">
-                <span class="skill-icon">💻</span>
-                <h3>Frontend Development</h3>
-                <p>Bringing designs to life with modern technologies like React, Vue, and vanilla JavaScript. Responsive, fast, and accessible.</p>
+            <div class="about-content">
+                <p>Hello! I'm Gabriel, a passionate full-stack developer with a specialization in frontend technologies. I create digital experiences that are not only visually stunning but also highly functional and performant.</p>
+                <p>With over 5 years of experience in the industry, I've worked on everything from small business websites to large-scale enterprise applications. I believe in writing clean, maintainable code and staying on top of emerging technologies.</p>
+                <p>When I'm not coding, you can find me contributing to open-source projects, writing technical articles, or exploring the latest developments in web technology.</p>
             </div>
-            <div class="skill-card fade-in-up">
-                <span class="skill-icon">⚡</span>
-                <h3>Full-Stack Solutions</h3>
-                <p>End-to-end web applications with Node.js, Python, and cloud services. From concept to deployment and beyond.</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category fade-in-up">
+                <div class="skill-header">
+                    <i class="skill-icon fas fa-code"></i>
+                    <h3>Frontend</h3>
+                </div>
+                <div class="skill-list">
+                    <span class="skill-item">React</span>
+                    <span class="skill-item">Vue.js</span>
+                    <span class="skill-item">TypeScript</span>
+                    <span class="skill-item">Next.js</span>
+                    <span class="skill-item">Redux</span>
+                    <span class="skill-item">GraphQL</span>
+                    <span class="skill-item">Webpack</span>
+                    <span class="skill-item">SASS</span>
+                </div>
+            </div>
+            <div class="skill-category fade-in-up">
+                <div class="skill-header">
+                    <i class="skill-icon fas fa-server"></i>
+                    <h3>Backend</h3>
+                </div>
+                <div class="skill-list">
+                    <span class="skill-item">Node.js</span>
+                    <span class="skill-item">Express</span>
+                    <span class="skill-item">Python</span>
+                    <span class="skill-item">Django</span>
+                    <span class="skill-item">PostgreSQL</span>
+                    <span class="skill-item">MongoDB</span>
+                    <span class="skill-item">Redis</span>
+                    <span class="skill-item">REST APIs</span>
+                </div>
+            </div>
+            <div class="skill-category fade-in-up">
+                <div class="skill-header">
+                    <i class="skill-icon fas fa-cloud"></i>
+                    <h3>DevOps & Tools</h3>
+                </div>
+                <div class="skill-list">
+                    <span class="skill-item">Docker</span>
+                    <span class="skill-item">AWS</span>
+                    <span class="skill-item">Git</span>
+                    <span class="skill-item">CI/CD</span>
+                    <span class="skill-item">Jest</span>
+                    <span class="skill-item">Cypress</span>
+                    <span class="skill-item">Webpack</span>
+                    <span class="skill-item">Vite</span>
+                </div>
             </div>
         </div>
     </section>
@@ -469,61 +792,131 @@
         <h2 class="section-title">Featured Projects</h2>
         <div class="projects-grid">
             <div class="project-card fade-in-up">
-                <div class="project-image">🚀</div>
+                <div class="project-image">
+                    <div class="project-badges">
+                        <span class="project-badge">Full Stack</span>
+                        <span class="project-badge">React</span>
+                    </div>
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
                 <div class="project-content">
                     <h3>E-Commerce Platform</h3>
                     <p>Modern shopping experience with real-time inventory, secure payments, and AI-powered recommendations.</p>
+                    <div class="project-tech">
+                        <span class="tech-pill">React</span>
+                        <span class="tech-pill">Node.js</span>
+                        <span class="tech-pill">MongoDB</span>
+                        <span class="tech-pill">Stripe API</span>
+                    </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">Live Demo →</a>
-                        <a href="#" class="project-link">GitHub →</a>
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
             </div>
             <div class="project-card fade-in-up">
-                <div class="project-image">📱</div>
+                <div class="project-image">
+                    <div class="project-badges">
+                        <span class="project-badge">Frontend</span>
+                        <span class="project-badge">Vue.js</span>
+                    </div>
+                    <i class="fas fa-chart-line"></i>
+                </div>
                 <div class="project-content">
-                    <h3>Mobile-First Dashboard</h3>
-                    <p>Analytics dashboard with real-time data visualization and interactive charts for business intelligence.</p>
+                    <h3>Analytics Dashboard</h3>
+                    <p>Real-time data visualization platform with interactive charts and custom reporting features.</p>
+                    <div class="project-tech">
+                        <span class="tech-pill">Vue.js</span>
+                        <span class="tech-pill">D3.js</span>
+                        <span class="tech-pill">WebSockets</span>
+                        <span class="tech-pill">Chart.js</span>
+                    </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">Live Demo →</a>
-                        <a href="#" class="project-link">GitHub →</a>
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
             </div>
             <div class="project-card fade-in-up">
-                <div class="project-image">🎵</div>
+                <div class="project-image">
+                    <div class="project-badges">
+                        <span class="project-badge">Full Stack</span>
+                        <span class="project-badge">Next.js</span>
+                    </div>
+                    <i class="fas fa-music"></i>
+                </div>
                 <div class="project-content">
-                    <h3>Music Streaming App</h3>
-                    <p>Spotify-like interface with playlist management, social features, and high-quality audio streaming.</p>
+                    <h3>Music Collaboration App</h3>
+                    <p>Platform for musicians to collaborate remotely with real-time audio streaming and project management.</p>
+                    <div class="project-tech">
+                        <span class="tech-pill">Next.js</span>
+                        <span class="tech-pill">WebRTC</span>
+                        <span class="tech-pill">PostgreSQL</span>
+                        <span class="tech-pill">Web Audio API</span>
+                    </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">Live Demo →</a>
-                        <a href="#" class="project-link">GitHub →</a>
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <section id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item fade-in-up">
+                <div class="timeline-content">
+                    <span class="timeline-date">2021 - Present</span>
+                    <h3>Senior Full Stack Developer</h3>
+                    <p>TechInnovate Solutions</p>
+                    <p>Led frontend architecture decisions, implemented CI/CD pipelines, and mentored junior developers while delivering complex web applications.</p>
+                </div>
+            </div>
+            <div class="timeline-item fade-in-up">
+                <div class="timeline-content">
+                    <span class="timeline-date">2019 - 2021</span>
+                    <h3>Frontend Developer</h3>
+                    <p>DigitalCreate Studio</p>
+                    <p>Specialized in building responsive and accessible user interfaces with React and Vue.js for various client projects.</p>
+                </div>
+            </div>
+            <div class="timeline-item fade-in-up">
+                <div class="timeline-content">
+                    <span class="timeline-date">2017 - 2019</span>
+                    <h3>Web Developer</h3>
+                    <p>WebCraft Inc.</p>
+                    <p>Developed and maintained websites and web applications using JavaScript, PHP, and various CMS platforms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="contact" id="contact">
-        <h2 class="section-title">Let's Build Something Amazing</h2>
+        <h2 class="section-title">Let's Work Together</h2>
         <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem;">
-            Ready to turn your vision into reality? Let's discuss your next project.
+            I'm currently available for freelance projects and full-time opportunities.
         </p>
         <div class="contact-links">
-            <a href="mailto:alex@example.com" class="contact-link">
-                <span>📧</span> Email Me
+            <a href="mailto:gabriel@example.com" class="contact-link">
+                <i class="fas fa-envelope"></i> Email Me
             </a>
-            <a href="https://linkedin.com/in/alexchen" class="contact-link">
-                <span>💼</span> LinkedIn
+            <a href="https://linkedin.com/in/gabrielanie" class="contact-link">
+                <i class="fab fa-linkedin"></i> LinkedIn
             </a>
-            <a href="https://github.com/alexchen" class="contact-link">
-                <span>🐙</span> GitHub
+            <a href="https://github.com/gabrielanie" class="contact-link">
+                <i class="fab fa-github"></i> GitHub
             </a>
-            <a href="https://twitter.com/alexchen" class="contact-link">
-                <span>🐦</span> Twitter
+            <a href="#" class="contact-link">
+                <i class="fas fa-file-alt"></i> Resume
             </a>
         </div>
     </div>
+
+    <footer>
+        <p>© 2023 Gabriel Anie. All rights reserved.</p>
+    </footer>
 
     <script>
         // Smooth scrolling for navigation links
@@ -562,46 +955,54 @@
         });
 
         // Dynamic typing effect for hero subtitle
-        const subtitle = document.querySelector('.hero .subtitle');
-        const originalText = subtitle.textContent;
-        const words = ['captivate and convert', 'inspire and engage', 'amaze and delight'];
-        let wordIndex = 0;
+        const subtitle = document.querySelector('.typewriter');
+        const texts = [
+            'Full Stack Developer & Frontend Specialist',
+            'React & Vue.js Expert',
+            'UI/UX Enthusiast',
+            'Problem Solver'
+        ];
+        let textIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
+        let typingDelay = 100;
+        let deletingDelay = 50;
+        let pauseDelay = 2000;
 
-        function typeWriter() {
-            const currentWord = words[wordIndex];
-            const baseText = 'Crafting digital experiences that ';
+        function type() {
+            const currentText = texts[textIndex];
             
             if (isDeleting) {
-                subtitle.textContent = baseText + currentWord.substring(0, charIndex - 1);
+                subtitle.textContent = currentText.substring(0, charIndex - 1);
                 charIndex--;
+                typingDelay = deletingDelay;
             } else {
-                subtitle.textContent = baseText + currentWord.substring(0, charIndex + 1);
+                subtitle.textContent = currentText.substring(0, charIndex + 1);
                 charIndex++;
+                typingDelay = 100;
             }
-
-            if (!isDeleting && charIndex === currentWord.length) {
+            
+            if (!isDeleting && charIndex === currentText.length) {
                 isDeleting = true;
-                setTimeout(typeWriter, 2000);
+                typingDelay = pauseDelay;
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-                setTimeout(typeWriter, 500);
-            } else {
-                setTimeout(typeWriter, isDeleting ? 50 : 100);
+                textIndex = (textIndex + 1) % texts.length;
+                typingDelay = 500;
             }
+            
+            setTimeout(type, typingDelay);
         }
 
         // Start typing effect after page load
-        setTimeout(typeWriter, 2000);
+        setTimeout(type, 1000);
 
         // Parallax effect for background
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const rate = scrolled * -0.5;
             const bgElement = document.querySelector('.bg-animation');
-            bgElement.style.transform = `translateY(${rate}px)`;
+            bgElement.style.transform = `translateY(${rate}px) scale(1.1)`;
         });
 
         // Add hover effects to project cards
@@ -614,50 +1015,6 @@
                 this.style.transform = 'translateY(0) scale(1)';
             });
         });
-
-        // Glowing cursor effect
-        document.addEventListener('mousemove', (e) => {
-            const cursor = document.createElement('div');
-            cursor.className = 'cursor-glow';
-            cursor.style.cssText = `
-                position: fixed;
-                left: ${e.clientX}px;
-                top: ${e.clientY}px;
-                width: 20px;
-                height: 20px;
-                background: radial-gradient(circle, rgba(102, 126, 234, 0.8) 0%, transparent 70%);
-                pointer-events: none;
-                border-radius: 50%;
-                z-index: 9999;
-                animation: cursorFade 1s ease-out forwards;
-            `;
-            
-            document.body.appendChild(cursor);
-            
-            setTimeout(() => {
-                cursor.remove();
-            }, 1000);
-        });
-
-        // Add cursor fade animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes cursorFade {
-                0% {
-                    opacity: 1;
-                    transform: scale(0);
-                }
-                50% {
-                    opacity: 0.8;
-                    transform: scale(1);
-                }
-                100% {
-                    opacity: 0;
-                    transform: scale(0);
-                }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
