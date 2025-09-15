@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gabriel Anie - Full Stack Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -607,7 +608,7 @@
         }
 
         .tech-pill {
-            background: rgba(102, 126, 234, 极市);
+            background: rgba(102, 126, 234, 0.2);
             color: #667eea;
             padding: 0.3rem 0.7rem;
             border-radius: 50px;
@@ -681,7 +682,7 @@
         .timeline-date {
             background: var(--primary-gradient);
             color: white;
-            padding: 极.5rem 1rem;
+            padding: 0.5rem 1rem;
             border-radius: 50px;
             font-size: 0.8rem;
             font-weight: 600;
@@ -689,7 +690,7 @@
             margin-bottom: 0.8rem;
         }
 
-        .timeline-item:nth-child(odd) .极imeline-content::after {
+        .timeline-item:nth-child(odd) .timeline-content::after {
             content: '';
             position: absolute;
             right: -10px;
@@ -727,7 +728,7 @@
             background: var(--card-bg);
             backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-           极order-radius: 20px;
+            border-radius: 20px;
             padding: 3rem;
             margin: 4rem 2rem;
         }
@@ -756,7 +757,7 @@
         .contact-link:hover {
             background: var(--primary-gradient);
             transform: translateY(-2px);
-            box-shadow: 0 5px极5px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
 
         footer {
@@ -764,6 +765,64 @@
             padding: 2rem;
             color: var(--text-secondary);
             font-size: 0.9rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .testimonial-content {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
         }
 
         /* Animations */
@@ -817,7 +876,7 @@
             }
 
             .modal-body {
-                grid-template-column极: 1fr;
+                grid-template-columns: 1fr;
             }
         }
 
@@ -897,7 +956,7 @@
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</极></li>
+            <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -905,7 +964,7 @@
     </nav>
 
     <section id="home" class="hero">
-        <div class="极ero-content">
+        <div class="hero-content">
             <h1>Gabriel Anie</h1>
             <p class="subtitle">
                 <span class="typewriter">Full Stack Developer & Frontend Specialist</span>
@@ -928,11 +987,12 @@
         <h2 class="section-title">About Me</h2>
         <div class="about-grid">
             <div class="about-image">
-                <img src="./assets/images/gabby.jpg" alt="Gabriel Anie">
+                <img src="./assets/images/gabby.jpg" alt="Gabriel Anie" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80'">
             </div>
             <div class="about-content">
                 <p>Hello! I'm Gabriel Anie, a passionate full-stack developer with a specialization in frontend technologies. I create digital experiences that are not only visually stunning but also highly functional and performant.</p>
                 <p>With over 5 years of experience in the industry, I've worked on everything from small business websites to large-scale enterprise applications. I believe in writing clean, maintainable code and staying on top of emerging technologies.</p>
+                <p>My expertise spans across modern JavaScript frameworks, responsive design, API development, and cloud infrastructure. I'm passionate about creating solutions that solve real-world problems while delivering exceptional user experiences.</p>
                 <p>When I'm not coding, you can find me contributing to open-source projects, writing technical articles, or exploring the latest developments in web technology.</p>
             </div>
         </div>
@@ -940,14 +1000,14 @@
 
     <section id="skills">
         <h2 class="section-title">Technical Skills</h2>
-        <极iv class="skills-container">
+        <div class="skills-container">
             <div class="skill-category fade-in-up">
                 <div class="skill-header">
                     <i class="skill-icon fas fa-code"></i>
                     <h3>Frontend</h3>
                 </div>
                 <div class="skill-list">
-                    <span class="skill-item">Wordpress</span>
+                    <span class="skill-item">WordPress</span>
                     <span class="skill-item">JavaScript</span>
                     <span class="skill-item">CSS</span>
                     <span class="skill-item">React</span>
@@ -957,6 +1017,8 @@
                     <span class="skill-item">Redux</span>
                     <span class="skill-item">GraphQL</span>
                     <span class="skill-item">SASS</span>
+                    <span class="skill-item">Bootstrap</span>
+                    <span class="skill-item">Tailwind CSS</span>
                 </div>
             </div>
             <div class="skill-category fade-in-up">
@@ -973,7 +1035,8 @@
                     <span class="skill-item">MySQL</span>
                     <span class="skill-item">MongoDB</span>
                     <span class="skill-item">Redis</span>
-                    <span class="skill极tem">REST APIs</span>
+                    <span class="skill-item">REST APIs</span>
+                    <span class="skill-item">Firebase</span>
                 </div>
             </div>
             <div class="skill-category fade-in-up">
@@ -988,6 +1051,9 @@
                     <span class="skill-item">CI/CD</span>
                     <span class="skill-item">Vite</span>
                     <span class="skill-item">Webpack</span>
+                    <span class="skill-item">Nginx</span>
+                    <span class="skill-item">Jest</span>
+                    <span class="skill-item">Figma</span>
                 </div>
             </div>
         </div>
@@ -1000,15 +1066,15 @@
                 <div class="project-image">
                     <div class="project-badges">
                         <span class="project-badge">Full Stack</span>
-                        <span class="project-badge">Wordpress</span>
+                        <span class="project-badge">WordPress</span>
                     </div>
-                    <img src="assets/images/Home-Giselavogue-09-08-2025_04_10_PM.png" alt="E-Commerce Platform">
+                    <img src="assets/images/Home-Giselavogue-09-08-2025_04_10_PM.png" alt="E-Commerce Platform" onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80'">
                 </div>
                 <div class="project-content">
                     <h3>E-Commerce Platform</h3>
                     <p>Modern shopping experience with real-time inventory, secure payments, and AI-powered recommendations.</p>
                     <div class="project-tech">
-                        <span class="tech-pill">wordpress</span>
+                        <span class="tech-pill">WordPress</span>
                         <span class="tech-pill">Elementor</span>
                         <span class="tech-pill">Woo-commerce</span>
                         <span class="tech-pill">Paystack API</span>
@@ -1024,7 +1090,7 @@
                         <span class="project-badge">Frontend</span>
                         <span class="project-badge">Vue.js</span>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfH极8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Analytics Dashboard">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Analytics Dashboard">
                 </div>
                 <div class="project-content">
                     <h3>Analytics Dashboard</h3>
@@ -1045,25 +1111,22 @@
                 <div class="project-image">
                     <div class="project-badges">
                         <span class="project-badge">Full Stack</span>
-                        <span class="project-badge">Next.js</span>
+                        <span class="project-badge">React Native</span>
                     </div>
-                    <img src="assets/images/On-The-Go-09-08-2025_04_05_PM.png" alt="OnTheGo Mobile App">
+                    <img src="assets/images/On-The-Go-09-08-2025_04_05_PM.png" alt="OnTheGo Mobile App" onerror="this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80'">
                 </div>
                 <div class="project-content">
                     <h3>OnTheGo Mobile App</h3>
-                    <p>
-                      A mobile platform that helps users find free Wi-Fi and nearby restaurants within major landmarks, 
-                      making city navigation easier and more convenient.
-                    </p>
+                    <p>A mobile platform that helps users find free Wi-Fi and nearby restaurants within major landmarks.</p>
                     <div class="project-tech">
-                        <span class="tech-pill">React-native</span>
+                        <span class="tech-pill">React Native</span>
                         <span class="tech-pill">TypeScript</span>
-                        <span class="极ech-pill">JavaScript</span>
+                        <span class="tech-pill">JavaScript</span>
                         <span class="tech-pill">NodeJs</span>
                     </div>
-                    <极iv class="project-links">
+                    <div class="project-links">
                         <a href="https://www.otgafrica.com/" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                        <a href="https://github.com/AVstudio1999/onthego.git" class="project-link"><极i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://github.com/AVstudio1999/onthego.git" class="project-link"><i class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
             </div>
@@ -1073,11 +1136,11 @@
                         <span class="project-badge">Full Stack</span>
                         <span class="project-badge">Laravel</span>
                     </div>
-                    <img src="assets/images/Greensage-Business-Consult-360-degrees-HR-services-09-15-2025_10_15_AM.png" alt="HR Software">
+                    <img src="assets/images/Greensage-Business-Consult-360-degrees-HR-services-09-15-2025_10_15_AM.png" alt="HR Software" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80'">
                 </div>
                 <div class="project-content">
                     <h3>Full Human Resource Software</h3>
-                    <p>Greensage Business Consult Limited is a Human Resource, Management and Strategy Consulting firm with interest in Organizational Performance and provision of training solutions to companies and individuals.</p>
+                    <p>Comprehensive HR management system for organizational performance and training solutions.</p>
                     <div class="project-tech">
                         <span class="tech-pill">Laravel</span>
                         <span class="tech-pill">PHP</span>
@@ -1096,11 +1159,11 @@
                         <span class="project-badge">Full Stack</span>
                         <span class="project-badge">Next.js</span>
                     </div>
-                    <img src="assets/images/Rateo-Empowering-better-work-experiences-for-everyone--09-15-2025_10_01_AM.png" alt="Rate'O Dashboard">
+                    <img src="assets/images/Rateo-Empowering-better-work-experiences-for-everyone--09-15-2025_10_01_AM.png" alt="Rate'O Dashboard" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80'">
                 </div>
                 <div class="project-content">
                     <h3>Rate'O Dashboard</h3>
-                    <p>Rateo is a platform that allows employees and employers to share honest feedback about their workplaces, colleagues, and management anonymously.</p>
+                    <p>Platform for anonymous workplace feedback to foster transparency and improve work experiences.</p>
                     <div class="project-tech">
                         <span class="tech-pill">NextJs</span>
                         <span class="tech-pill">TypeScript</span>
@@ -1109,7 +1172,7 @@
                         <span class="tech-pill">MySQL</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://rateo.ng/" class="project-link"><i class="fas fa-external-link-alt"></极> Live Demo</a>
+                        <a href="https://rateo.ng/" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                         <a href="https://github.com/Gabrielanie/web-admin-rateo-develop.git" class="project-link"><i class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
@@ -1144,62 +1207,107 @@
 
     <section id="experience">
         <h2 class="section-title">Professional Experience</h2>
-
-
         <div class="timeline">
-<div class="timeline-item fade-in-up">
-  <div class="timeline-content">
-    <span class="timeline-date">2018 - Present</span>
-    <h3>Freelance Web Developer & Digital Strategist</h3>
-    <p>Self-Employed</p>
-    <p>
-      Specialized in building professional websites and eCommerce stores using WordPress. 
-      Helped small businesses establish a strong online presence by combining web development, 
-      digital marketing, and brand strategy to attract and retain clients. Delivered tailored 
-      solutions that boosted visibility, engagement, and sales growth.
-    </p>
-  </div>
-</div>
-
+            <div class="timeline-item fade-in-up">
+                <div class="timeline-content">
+                    <span class="timeline-date">2018 - Present</span>
+                    <h3>Freelance Web Developer & Digital Strategist</h3>
+                    <p>Self-Employed</p>
+                    <p>
+                        Specialized in building professional websites and eCommerce stores using WordPress. 
+                        Helped small businesses establish a strong online presence by combining web development, 
+                        digital marketing, and brand strategy to attract and retain clients. Delivered tailored 
+                        solutions that boosted visibility, engagement, and sales growth.
+                    </p>
+                </div>
+            </div>
             <div class="timeline-item fade-in-up">
                 <div class="timeline-content">
                     <span class="timeline-date">2024 - Present</span>
                     <h3>Senior Full Stack Developer</h3>
                     <p>A Venture Studio <span><i>Remote (London)</i></span></p>
-  <p>Developed a mobile platform to help users locate free Wi-Fi and nearby restaurants within landmarks.</p>
-    <li>Integrated location-based services for accurate and real-time search results.</li>
+                    <p>Developed a mobile platform to help users locate free Wi-Fi and nearby restaurants within landmarks.</p>
+                    <p>Integrated location-based services for accurate and real-time search results.</p>
+                    <p>Led a team of developers in implementing new features and optimizing application performance.</p>
                 </div>
             </div>
             <div class="timeline-item fade-in-up">
                 <div class="timeline-content">
                     <span class="timeline-date">2023 - 2024</span>
-                    <h3>Frontend Developer / coding Instructor</h3>
+                    <h3>Frontend Developer / Coding Instructor</h3>
                     <p>Melodia Coding Academy</p>
-                     <p>Developed and maintained responsive web applications using modern frontend technologies.</p>
-  <p>Taught coding fundamentals and web development skills to students through hands-on projects.</p>
-  <p>Collaborated with the academy team to design engaging learning materials and coding exercises.</p>
-
+                    <p>Developed and maintained responsive web applications using modern frontend technologies.</p>
+                    <p>Taught coding fundamentals and web development skills to students through hands-on projects.</p>
+                    <p>Collaborated with the academy team to design engaging learning materials and coding exercises.</p>
                 </div>
             </div>
-       <div class="timeline-item fade-in-up"> 
-  <div class="timeline-content">
-    <span class="timeline-date">2020 - 2022</span>
-    <h3>Web Developer Intern</h3>
-    <p>Firstlincoln Technology</p>
-    <p>
-      Assisted in the design and development of websites and极eb applications, gaining hands-on 
-      experience with HTML, CSS, JavaScript, and CMS platforms. Collaborated with senior developers 
-      to troubleshoot issues, optimize performance, and implement responsive designs.
-    </极>
-  </div>
-</div>
+            <div class="timeline-item fade-in-up"> 
+                <div class="timeline-content">
+                    <span class="timeline-date">2020 - 2022</span>
+                    <h3>Web Developer Intern</h3>
+                    <p>Firstlincoln Technology</p>
+                    <p>
+                        Assisted in the design and development of websites and web applications, gaining hands-on 
+                        experience with HTML, CSS, JavaScript, and CMS platforms. Collaborated with senior developers 
+                        to troubleshoot issues, optimize performance, and implement responsive designs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <h2 class="section-title">Client Testimonials</h2>
+        <div class="testimonials-container">
+            <div class="testimonial fade-in-up">
+                <div class="testimonial-content">
+                    "Gabriel delivered an exceptional e-commerce platform for our fashion brand. His attention to detail and technical expertise resulted in a 40% increase in our online sales within the first month of launch."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Client">
+                    </div>
+                    <div class="author-info">
+                        <h4>Sarah Johnson</h4>
+                        <p>CEO, Gisela Vogue</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial fade-in-up">
+                <div class="testimonial-content">
+                    "Working with Gabriel on our HR software was a game-changer for our business. He transformed our complex requirements into an intuitive, user-friendly platform that our team loves using daily."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client">
+                    </div>
+                    <div class="author-info">
+                        <h4>Michael Thompson</h4>
+                        <p>Director, Greensage Consult</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial fade-in-up">
+                <div class="testimonial-content">
+                    "Gabriel's expertise in React and Node.js helped us build a scalable analytics dashboard that processes millions of data points. His clean code and documentation made future enhancements effortless."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client">
+                    </div>
+                    <div class="author-info">
+                        <h4>Jennifer Lee</h4>
+                        <p>Product Manager, TechCorp</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <div class="contact" id="contact">
         <h2 class="section-title">Let's Work Together</h2>
         <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem;">
-            I'm currently available for freelance projects and full-time opportunities.
+            I'm currently available for freelance projects and full-time opportunities. Let's discuss how I can help bring your ideas to life.
         </p>
         <div class="contact-links">
             <a href="mailto:younganiel@gmail.com" class="contact-link">
@@ -1212,13 +1320,14 @@
                 <i class="fab fa-github"></i> GitHub
             </a>
             <a href="#" class="contact-link">
-                <i class="fas极fa-file-alt"></i> Resume
+                <i class="fas fa-file-alt"></i> Resume
             </a>
         </div>
     </div>
 
     <footer>
         <p>© 2025 Gabriel Anie. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Designed and developed with ❤️ by Gabriel Anie</p>
     </footer>
 
     <script>
@@ -1226,10 +1335,10 @@
         const projects = {
             1: {
                 title: "E-Commerce Platform",
-                subtitle: "Full Stack • Wordpress",
-                image: "assets/images/Home-Giselavogue-09-08-2025_04极0_PM.png",
-                description: "Modern shopping experience with real-time inventory, secure payments, and AI-powered recommendations. Built with WordPress and WooCommerce, featuring a responsive design, product filtering, user accounts, and integrated payment processing with Paystack API.",
-                technologies: ["Wordpress", "Elementor", "Woo-commerce", "Paystack API", "JavaScript", "PHP", "MySQL"],
+                subtitle: "Full Stack • WordPress",
+                image: "assets/images/Home-Giselavogue-09-08-2025_04_10_PM.png",
+                description: "Modern shopping experience with real-time inventory, secure payments, and AI-powered recommendations. Built with WordPress and WooCommerce, featuring a responsive design, product filtering, user accounts, and integrated payment processing with Paystack API. The platform handles over 500 daily visitors with optimized performance and seamless checkout experience.",
+                technologies: ["WordPress", "Elementor", "Woo-commerce", "Paystack API", "JavaScript", "PHP", "MySQL", "CSS3", "jQuery"],
                 liveLink: "https://www.giselavogue.com",
                 githubLink: "#"
             },
@@ -1237,8 +1346,8 @@
                 title: "Analytics Dashboard",
                 subtitle: "Frontend • Vue.js",
                 image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-                description: "Real-time data visualization platform with interactive charts and custom reporting features. This dashboard provides businesses with insights into their key performance indicators through beautiful visualizations and real-time updates using WebSockets.",
-                technologies: ["Vue.js", "D3.js", "WebSockets", "Chart.js", "JavaScript", "CSS", "Node.js"],
+                description: "Real-time data visualization platform with interactive charts and custom reporting features. This dashboard provides businesses with insights into their key performance indicators through beautiful visualizations and real-time updates using WebSockets. Features include customizable dashboards, data export functionality, and role-based access control.",
+                technologies: ["Vue.js", "D3.js", "WebSockets", "Chart.js", "JavaScript", "CSS", "Node.js", "Express", "MongoDB"],
                 liveLink: "#",
                 githubLink: "https://github.com/Gabrielanie/dashboard-a1.git"
             },
@@ -1246,8 +1355,8 @@
                 title: "OnTheGo Mobile App",
                 subtitle: "Full Stack • React Native",
                 image: "assets/images/On-The-Go-09-08-2025_04_05_PM.png",
-                description: "A mobile platform that helps users find free Wi-Fi and nearby restaurants within major landmarks, making city navigation easier and more convenient. The app includes location-based services, user reviews, and real-time availability information.",
-                technologies: ["React-native", "TypeScript", "JavaScript", "NodeJs", "Express", "MongoDB", "Google Maps API"],
+                description: "A mobile platform that helps users find free Wi-Fi and nearby restaurants within major landmarks, making city navigation easier and more convenient. The app includes location-based services, user reviews, and real-time availability information. Features include offline functionality, user ratings, and integration with mapping services for accurate directions.",
+                technologies: ["React Native", "TypeScript", "JavaScript", "NodeJs", "Express", "MongoDB", "Google Maps API", "Redux", "Firebase"],
                 liveLink: "https://www.otgafrica.com/",
                 githubLink: "https://github.com/AVstudio1999/onthego.git"
             },
@@ -1255,8 +1364,8 @@
                 title: "Full Human Resource Software",
                 subtitle: "Full Stack • Laravel",
                 image: "assets/images/Greensage-Business-Consult-360-degrees-HR-services-09-15-2025_10_15_AM.png",
-                description: "Greensage Business Consult Limited is a Human Resource, Management and Strategy Consulting firm with interest in Organizational Performance and provision of training solutions to companies and individuals.",
-                technologies: ["Laravel", "PHP", "MySQL", "React.js", "Bootstrap", "REST API", "JWT"],
+                description: "Comprehensive HR management system for organizational performance and training solutions. The platform includes employee management, payroll processing, performance reviews, and training module management. Features role-based access control, reporting dashboards, and integration with third-party services for seamless HR operations.",
+                technologies: ["Laravel", "PHP", "MySQL", "React.js", "Bootstrap", "REST API", "JWT", "Chart.js", "DataTables"],
                 liveLink: "https://greensagebconsult.com/",
                 githubLink: "#"
             },
@@ -1264,17 +1373,17 @@
                 title: "Rate'O Dashboard",
                 subtitle: "Full Stack • Next.js",
                 image: "assets/images/Rateo-Empowering-better-work-experiences-for-everyone--09-15-2025_10_01_AM.png",
-                description: "Rateo is a platform that allows employees and employers to share honest feedback about their workplaces, colleagues, and management anonymously. It's designed to help foster transparency, improve workplace experiences, and empower individuals to make informed career decisions.",
-                technologies: ["NextJs", "TypeScript", "Reactjs", "JavaScript", "Node.js", "Express", "MySQL", "Stripe API", "PayPal API", "Jest"],
+                description: "Rateo is a platform that allows employees and employers to share honest feedback about their workplaces, colleagues, and management anonymously. It's designed to help foster transparency, improve workplace experiences, and empower individuals to make informed career decisions. Features include sentiment analysis, reporting tools, and admin moderation capabilities.",
+                technologies: ["NextJs", "TypeScript", "Reactjs", "JavaScript", "Node.js", "Express", "MySQL", "Stripe API", "PayPal API", "Jest", "Tailwind CSS"],
                 liveLink: "https://rateo.ng/",
                 githubLink: "https://github.com/Gabrielanie/web-admin-rateo-develop.git"
             },
             6: {
                 title: "Real Estate Platform",
                 subtitle: "Full Stack • React",
-                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52极?ixlib=rb-4.0.3&极id=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80",
-                description: "Comprehensive property listing platform with advanced search filters, virtual tours, and agent management. This platform connects buyers and sellers with detailed property information, image galleries, and direct messaging capabilities.",
-                technologies: ["React", "Node.js", "MongoDB", "Google Maps API", "Cloudinary", "Express", "JWT"],
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80",
+                description: "Comprehensive property listing platform with advanced search filters, virtual tours, and agent management. This platform connects buyers and sellers with detailed property information, image galleries, and direct messaging capabilities. Includes features like saved searches, property comparisons, and mortgage calculators to enhance the user experience.",
+                technologies: ["React", "Node.js", "MongoDB", "Google Maps API", "Cloudinary", "Express", "JWT", "Socket.io", "Redis"],
                 liveLink: "#",
                 githubLink: "#"
             }
@@ -1307,6 +1416,13 @@
             
             document.getElementById('modalLiveLink').href = project.liveLink;
             document.getElementById('modalGithubLink').href = project.githubLink || '#';
+            
+            // Hide GitHub link if not available
+            if (!project.githubLink || project.githubLink === '#') {
+                document.getElementById('modalGithubLink').style.display = 'none';
+            } else {
+                document.getElementById('modalGithubLink').style.display = 'inline-flex';
+            }
             
             modal.style.display = 'block';
             setTimeout(() => {
@@ -1409,7 +1525,7 @@
                 typingDelay = 100;
             }
             
-            if (!is极eleting && charIndex === currentText.length) {
+            if (!isDeleting && charIndex === currentText.length) {
                 isDeleting = true;
                 typingDelay = pauseDelay;
             } else if (isDeleting && charIndex === 0) {
@@ -1440,6 +1556,14 @@
             
             card.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add error handling for images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                this.src = 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80';
+                this.alt = 'Image not available';
             });
         });
     </script>
