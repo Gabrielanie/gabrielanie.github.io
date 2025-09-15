@@ -91,6 +91,39 @@
         .modal-header {
             padding: 2rem 2rem 1rem;
             border-bottom: 1px solid var(--glass-border);
+            position: relative;
+        }
+
+        .modal-navigation {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .modal-nav-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .modal-nav-btn:hover {
+            background: var(--primary-gradient);
+            transform: scale(1.1);
+        }
+
+        .modal-nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
         }
 
         .modal-body {
@@ -171,12 +204,15 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-align: center;
+            padding: 0 3rem;
         }
 
         .modal-subtitle {
             color: var(--text-secondary);
             font-size: 1.1rem;
             margin-bottom: 1rem;
+            text-align: center;
         }
 
         .view-all-btn {
@@ -715,6 +751,7 @@
         .timeline h3 {
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
+            color: var(--text-primary);
         }
 
         .timeline p {
@@ -878,6 +915,12 @@
             .modal-body {
                 grid-template-columns: 1fr;
             }
+            
+            .modal-navigation {
+                position: static;
+                justify-content: center;
+                margin-bottom: 1rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -920,6 +963,11 @@
                 width: 95%;
                 margin: 10% auto;
             }
+            
+            .modal-title {
+                font-size: 1.5rem;
+                padding: 0 1rem;
+            }
         }
     </style>
 </head>
@@ -931,6 +979,10 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div class="modal-header">
+                <div class="modal-navigation">
+                    <button class="modal-nav-btn" id="prevProject" disabled><i class="fas fa-chevron-left"></i></button>
+                    <button class="modal-nav-btn" id="nextProject"><i class="fas fa-chevron-right"></i></button>
+                </div>
                 <h2 class="modal-title" id="modalProjectTitle">Project Title</h2>
                 <p class="modal-subtitle" id="modalProjectSubtitle">Project Category</p>
             </div>
@@ -1394,11 +1446,20 @@
         const closeModal = document.querySelector('.close-modal');
         const projectCards = document.querySelectorAll('.project-card');
         const viewAllBtn = document.getElementById('viewAllProjects');
+        const prevBtn = document.getElementById('prevProject');
+        const nextBtn = document.getElementById('nextProject');
+        
+        let currentProjectId = 1;
+        const projectIds = Object.keys(projects).map(id => parseInt(id));
+        const totalProjects = projectIds.length;
 
         // Open modal with project details
         function openModal(projectId) {
             const project = projects[projectId];
             if (!project) return;
+            
+            currentProjectId = projectId;
+            updateNavigationButtons();
             
             document.getElementById('modalProjectTitle').textContent = project.title;
             document.getElementById('modalProjectSubtitle').textContent = project.subtitle;
@@ -1414,14 +1475,17 @@
                 techContainer.appendChild(techSpan);
             });
             
-            document.getElementById('modalLiveLink').href = project.liveLink;
-            document.getElementById('modalGithubLink').href = project.githubLink || '#';
+            const liveLink = document.getElementById('modalLiveLink');
+            liveLink.href = project.liveLink;
+            
+            const githubLink = document.getElementById('modalGithubLink');
+            githubLink.href = project.githubLink || '#';
             
             // Hide GitHub link if not available
             if (!project.githubLink || project.githubLink === '#') {
-                document.getElementById('modalGithubLink').style.display = 'none';
+                githubLink.style.display = 'none';
             } else {
-                document.getElementById('modalGithubLink').style.display = 'inline-flex';
+                githubLink.style.display = 'inline-flex';
             }
             
             modal.style.display = 'block';
@@ -1429,6 +1493,26 @@
                 modal.classList.add('show');
                 document.body.style.overflow = 'hidden';
             }, 10);
+        }
+
+        // Update navigation buttons state
+        function updateNavigationButtons() {
+            prevBtn.disabled = currentProjectId <= 1;
+            nextBtn.disabled = currentProjectId >= totalProjects;
+        }
+
+        // Navigate to next project
+        function nextProject() {
+            if (currentProjectId < totalProjects) {
+                openModal(currentProjectId + 1);
+            }
+        }
+
+        // Navigate to previous project
+        function prevProject() {
+            if (currentProjectId > 1) {
+                openModal(currentProjectId - 1);
+            }
         }
 
         // Close modal
@@ -1443,12 +1527,14 @@
         // Event listeners
         projectCards.forEach(card => {
             card.addEventListener('click', () => {
-                const projectId = card.getAttribute('data-project');
+                const projectId = parseInt(card.getAttribute('data-project'));
                 openModal(projectId);
             });
         });
 
         closeModal.addEventListener('click', closeModalFunc);
+        prevBtn.addEventListener('click', prevProject);
+        nextBtn.addEventListener('click', nextProject);
         
         window.addEventListener('click', (e) => {
             if (e.target === modal) {
@@ -1456,10 +1542,22 @@
             }
         });
 
-        // View all projects functionality
+        // View all projects functionality - show the first project
         viewAllBtn.addEventListener('click', () => {
-            // For demonstration, opening the first project modal
             openModal(1);
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (modal.style.display === 'block') {
+                if (e.key === 'ArrowRight') {
+                    nextProject();
+                } else if (e.key === 'ArrowLeft') {
+                    prevProject();
+                } else if (e.key === 'Escape') {
+                    closeModalFunc();
+                }
+            }
         });
 
         // Smooth scrolling for navigation links
