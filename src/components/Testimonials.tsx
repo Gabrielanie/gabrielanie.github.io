@@ -15,6 +15,15 @@ export default function Testimonials() {
       ref={ref}
       style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
     >
+      {/* Eyebrow */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        className="section-label justify-center mb-4"
+      >
+        Kind words
+      </motion.div>
+
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -40,10 +49,19 @@ export default function Testimonials() {
             transition={{ duration: 0.5, delay: i * 0.12 }}
             className="glass-card p-6 flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300"
           >
-            <Quote size={24} className="text-[#667eea] opacity-60" />
+            <Quote size={26} className="text-[#667eea] opacity-50" />
+
+            {/* Stars */}
+            <div className="flex gap-0.5 -mt-2">
+              {Array.from({ length: 5 }).map((_, k) => (
+                <span key={k} className="text-amber-400 text-xs">★</span>
+              ))}
+            </div>
+
             <p className="text-white/60 text-sm leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</p>
+
             <div className="flex items-center gap-3 pt-2 border-t border-white/5">
-              <div className="w-10 h-10 rounded-full overflow-hidden relative flex-shrink-0">
+              <div className="w-10 h-10 rounded-full overflow-hidden relative shrink-0">
                 <Image src={t.avatar} alt={t.name} fill className="object-cover" />
               </div>
               <div>

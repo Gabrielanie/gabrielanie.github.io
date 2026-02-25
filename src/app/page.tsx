@@ -12,7 +12,11 @@ export default function Home() {
   return (
     <>
       {/* Animated gradient background */}
-      <div className="bg-animation" aria-hidden="true" />
+      <div className="bg-animation" aria-hidden="true">
+        <span className="bg-orb bg-orb-3" />
+        <span className="bg-orb bg-orb-4" />
+        <span className="bg-orb bg-orb-5" />
+      </div>
 
       <Navbar />
 

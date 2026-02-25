@@ -52,6 +52,15 @@ export default function Contact() {
         className="text-center"
       >
         {/* Eyebrow */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          className="section-label justify-center mb-5"
+        >
+          Get in touch
+        </motion.div>
+
+        {/* Badge */}
         <div
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6"
           style={{
@@ -75,7 +84,7 @@ export default function Contact() {
       </motion.div>
 
       {/* Contact cards */}
-      <div className="grid sm:grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
         {LINKS.map(({ icon: Icon, label, sub, href, gradient }, i) => (
           <motion.a
             key={label}
@@ -89,9 +98,9 @@ export default function Contact() {
             className="glass-card flex items-center gap-4 p-5 hover:-translate-y-1 transition-transform duration-300 group"
           >
             <div
-              className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 bg-linear-to-br ${gradient} shadow-lg`}
+              className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 bg-linear-to-br ${gradient} shadow-lg`}
             >
-              <Icon size={20} className="text-white" />
+              <Icon size={22} className="text-white" />
             </div>
             <div className="text-left">
               <div className="text-white font-semibold text-sm">{label}</div>

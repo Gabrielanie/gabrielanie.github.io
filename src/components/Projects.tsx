@@ -19,7 +19,8 @@ export default function Projects() {
   const filtered = PROJECTS.filter(
     (p) => filter === "All" || p.category === filter
   );
-  const visible = showAll ? filtered : filtered.slice(0, 6);
+  const featuredProject = filtered[0] ?? null;
+  const gridProjects = showAll ? filtered.slice(1) : filtered.slice(1, 6);
 
   const openModal = (p: (typeof PROJECTS)[0]) => {
     setModal(p);
@@ -37,6 +38,15 @@ export default function Projects() {
   return (
     <>
       <section id="projects" className="py-24 px-4 max-w-6xl mx-auto scroll-mt-24" ref={ref}>
+        {/* Eyebrow */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          className="section-label justify-center mb-4"
+        >
+          Selected work
+        </motion.div>
+
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -54,34 +64,125 @@ export default function Projects() {
         </motion.p>
 
         {/* Filter tabs */}
-        <div className="flex flex-wrap gap-3 justify-center mb-12">
+        <div className="flex flex-wrap gap-2.5 justify-center mb-12">
           {FILTERS.map((f) => (
             <button
               key={f}
               onClick={() => { setFilter(f); setShowAll(false); }}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                filter === f
-                  ? "text-white shadow-[0_4px_16px_rgba(102,126,234,.4)]"
-                  : "text-white/50 hover:text-white/80"
-              }`}
-              style={
-                filter === f
-                  ? { background: "linear-gradient(135deg,#667eea,#764ba2)" }
-                  : {
-                      background: "rgba(255,255,255,0.04)",
-                      border: "1px solid rgba(255,255,255,0.08)",
-                    }
-              }
+              className={`tab-pill${filter === f ? " active" : ""}`}
             >
               {f}
             </button>
           ))}
         </div>
 
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Featured hero card — full width */}
+        <AnimatePresence mode="wait">
+          {featuredProject && (
+            <motion.div
+              key={`hero-${featuredProject.id}`}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              onClick={() => openModal(featuredProject)}
+              className="project-hero-card cursor-pointer group mb-8"
+            >
+              <div className="grid md:grid-cols-2">
+                {/* Image — left half */}
+                <div className="relative h-56 md:h-80 overflow-hidden">
+                  <Image
+                    src={featuredProject.image || featuredProject.fallbackImage}
+                    alt={featuredProject.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = featuredProject.fallbackImage;
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/30 hidden md:block" />
+                  <div className="absolute top-4 left-4 flex gap-2">
+                    <span
+                      className="px-3 py-1 rounded-full text-xs font-semibold text-white"
+                      style={{ background: "rgba(102,126,234,.85)" }}
+                    >
+                      {featuredProject.category}
+                    </span>
+                    <span
+                      className="px-3 py-1 rounded-full text-xs font-bold text-white"
+                      style={{ background: "linear-gradient(135deg,#667eea,#764ba2)" }}
+                    >
+                      Featured
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content — right half */}
+                <div className="p-7 md:p-9 flex flex-col justify-center">
+                  <div className="text-xs font-semibold text-[#667eea] mb-2 uppercase tracking-wider">
+                    {featuredProject.tag}
+                  </div>
+                  <h3 className="text-white font-bold text-xl md:text-2xl mb-3 leading-snug">
+                    {featuredProject.title}
+                  </h3>
+                  <p className="text-white/50 text-sm leading-relaxed mb-5 line-clamp-3">
+                    {featuredProject.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5 mb-6">
+                    {featuredProject.tech.slice(0, 5).map((t) => (
+                      <span
+                        key={t}
+                        className="px-2.5 py-0.5 rounded-full text-[0.7rem] font-medium"
+                        style={{
+                          background: "rgba(102,126,234,0.12)",
+                          border: "1px solid rgba(102,126,234,0.22)",
+                          color: "#a78bfa",
+                        }}
+                      >
+                        {t}
+                      </span>
+                    ))}
+                    {featuredProject.tech.length > 5 && (
+                      <span className="text-[0.7rem] text-white/30 px-1">
+                        +{featuredProject.tech.length - 5}
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex gap-3">
+                    {featuredProject.liveLink && (
+                      <a
+                        href={featuredProject.liveLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="flex items-center gap-1.5 px-5 py-2.5 rounded-full font-semibold text-sm text-white hover:-translate-y-0.5 transition-transform"
+                        style={{ background: "linear-gradient(135deg,#667eea,#764ba2)" }}
+                      >
+                        <ExternalLink size={13} /> Live Demo
+                      </a>
+                    )}
+                    {featuredProject.githubLink && (
+                      <a
+                        href={featuredProject.githubLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="flex items-center gap-1.5 text-sm font-medium text-white/60 hover:text-white transition-colors border border-white/10 px-5 py-2.5 rounded-full hover:border-white/25"
+                      >
+                        <GitBranch size={13} /> GitHub
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* 3-col grid for remaining projects */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           <AnimatePresence mode="popLayout">
-            {visible.map((project, i) => (
+            {gridProjects.map((project, i) => (
               <motion.div
                 key={project.id}
                 layout
@@ -104,7 +205,6 @@ export default function Projects() {
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  {/* Badges */}
                   <div className="absolute top-3 left-3 flex gap-2">
                     <span
                       className="px-2.5 py-1 rounded-full text-[0.7rem] font-semibold text-white"
@@ -179,7 +279,7 @@ export default function Projects() {
         </div>
 
         {/* View all / less */}
-        {filtered.length > 6 && (
+        {filtered.length - 1 > 5 && (
           <div className="flex justify-center mt-10">
             <button
               onClick={() => setShowAll(!showAll)}
@@ -220,7 +320,6 @@ export default function Projects() {
             >
               {/* Modal header */}
               <div className="relative p-6 border-b border-white/5">
-                {/* Nav buttons */}
                 <div className="flex gap-2 mb-4">
                   <button
                     onClick={() => navigateModal(-1)}
@@ -239,12 +338,10 @@ export default function Projects() {
                     <ChevronRight size={16} />
                   </button>
                 </div>
-
                 <h2 className="text-2xl font-bold text-center gradient-text-primary px-10">
                   {modal.title}
                 </h2>
                 <p className="text-white/40 text-center text-sm mt-1">{modal.subtitle}</p>
-
                 <button
                   onClick={() => setModal(null)}
                   className="absolute top-5 right-5 text-white/40 hover:text-white transition-colors"

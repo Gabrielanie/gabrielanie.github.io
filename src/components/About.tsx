@@ -10,11 +10,20 @@ export default function About() {
 
   return (
     <section id="about" className="py-24 px-4 max-w-6xl mx-auto scroll-mt-24" ref={ref}>
+      {/* Eyebrow */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        className="section-label justify-center mb-4"
+      >
+        Get to know me
+      </motion.div>
+
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.5 }}
-        className="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text-secondary"
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="text-4xl md:text-5xl font-bold text-center mb-12 gradient-text-secondary"
       >
         About Me
       </motion.h2>
@@ -43,27 +52,6 @@ export default function About() {
                 background: "linear-gradient(135deg,rgba(102,126,234,.15),transparent)",
               }}
             />
-          </div>
-
-          {/* Stats row — contained below image, no overflow */}
-          <div className="flex gap-3 mt-5 max-w-sm mx-auto md:mx-0">
-            {[
-              { value: "7+", label: "Yrs Experience" },
-              { value: "20+", label: "Projects" },
-              { value: "15+", label: "Clients" },
-            ].map((s) => (
-              <div
-                key={s.label}
-                className="flex-1 text-center rounded-xl py-3"
-                style={{
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.07)",
-                }}
-              >
-                <div className="text-xl font-extrabold gradient-text-accent">{s.value}</div>
-                <div className="text-[0.65rem] text-white/40 mt-0.5 leading-tight">{s.label}</div>
-              </div>
-            ))}
           </div>
         </motion.div>
 
@@ -102,8 +90,8 @@ export default function About() {
                 key={label}
                 className="flex items-center gap-3 p-3 rounded-xl"
                 style={{
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.07)",
+                  background: "var(--surface-1)",
+                  border: "1px solid rgba(255,255,255,0.09)",
                 }}
               >
                 <Icon size={16} className="text-[#667eea] flex-shrink-0" />
