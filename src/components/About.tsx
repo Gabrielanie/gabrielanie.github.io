@@ -28,7 +28,7 @@ export default function About() {
         About Me
       </motion.h2>
 
-      <div className="grid md:grid-cols-2 gap-12 items-start">
+      <div className="grid md:grid-cols-2 gap-12 items-center">
         {/* Image column */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowDown, Sparkles, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Sparkles, GitBranch, ExternalLink, Mail } from "lucide-react";
 
 const ROLES = [
   "Full Stack Developer",
@@ -45,7 +45,7 @@ export default function Hero() {
       className="min-h-screen flex flex-col justify-center relative px-4 pt-24 pb-16 scroll-mt-0"
     >
       <div className="section-container">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[calc(100vh-10rem)]">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* LEFT — text content */}
           <motion.div
@@ -101,8 +101,8 @@ export default function Hero() {
             {/* Social icons row */}
             <div className="flex items-center gap-2.5 mb-8">
               {[
-                { href: "https://github.com/gabrielanie", icon: Github, label: "GitHub" },
-                { href: "https://www.linkedin.com/in/gabriel-udoh-85974616b/", icon: Linkedin, label: "LinkedIn" },
+                { href: "https://github.com/gabrielanie", icon: GitBranch, label: "GitHub" },
+                { href: "https://www.linkedin.com/in/gabriel-udoh-85974616b/", icon: ExternalLink, label: "LinkedIn" },
                 { href: "mailto:younganiel@gmail.com", icon: Mail, label: "Email" },
               ].map(({ href, icon: Icon, label }) => (
                 <a
@@ -111,17 +111,17 @@ export default function Hero() {
                   target={href.startsWith("mailto") ? undefined : "_blank"}
                   rel="noreferrer"
                   aria-label={label}
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-white/50 hover:text-white transition-all duration-200 hover:-translate-y-0.5"
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-white/65 hover:text-white transition-all duration-200 hover:-translate-y-0.5"
                   style={{
-                    background: "rgba(255,255,255,0.06)",
-                    border: "1px solid rgba(255,255,255,0.09)",
+                    background: "rgba(255,255,255,0.12)",
+                    border: "1px solid rgba(255,255,255,0.18)",
                   }}
                 >
                   <Icon size={15} />
                 </a>
               ))}
               <div className="w-px h-4 bg-white/10 mx-1" />
-              <span className="text-white/25 text-xs font-medium">younganiel@gmail.com</span>
+              <span className="text-white/40 text-xs font-medium">younganiel@gmail.com</span>
             </div>
 
             {/* CTAs */}
@@ -173,7 +173,7 @@ export default function Hero() {
             <div className="relative">
               {/* Photo container */}
               <div
-                className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[22rem] lg:h-[22rem] rounded-full overflow-hidden"
+                className="relative w-52 h-52 md:w-64 md:h-64 lg:w-[18rem] lg:h-[18rem] rounded-full overflow-hidden"
                 style={{
                   border: "3px solid rgba(102,126,234,0.3)",
                   boxShadow:
@@ -205,7 +205,7 @@ export default function Hero() {
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
-                className="absolute -bottom-3 -left-4 px-4 py-2.5 rounded-2xl text-center"
+                className="absolute -bottom-2 left-2 px-4 py-2.5 rounded-2xl text-center"
                 style={{
                   background: "rgba(8,8,8,0.92)",
                   border: "1px solid rgba(102,126,234,0.35)",
@@ -220,7 +220,7 @@ export default function Hero() {
               <motion.div
                 animate={{ y: [0, 5, 0] }}
                 transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
-                className="absolute -top-2 -right-6 px-3.5 py-2 rounded-2xl"
+                className="absolute -top-2 -right-2 px-3.5 py-2 rounded-2xl"
                 style={{
                   background: "rgba(8,8,8,0.92)",
                   border: "1px solid rgba(79,172,254,0.3)",

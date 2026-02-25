@@ -1,8 +1,8 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { GitBranch, ExternalLink, Mail } from "lucide-react";
 
 const SOCIAL = [
-  { icon: Github, href: "https://github.com/gabrielanie", label: "GitHub" },
-  { icon: Linkedin, href: "https://www.linkedin.com/in/gabriel-udoh-85974616b/", label: "LinkedIn" },
+  { icon: GitBranch, href: "https://github.com/gabrielanie", label: "GitHub" },
+  { icon: ExternalLink, href: "https://www.linkedin.com/in/gabriel-udoh-85974616b/", label: "LinkedIn" },
   { icon: Mail, href: "mailto:younganiel@gmail.com", label: "Email" },
 ];
 
