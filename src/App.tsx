@@ -8,18 +8,14 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
-export default function Home() {
+export default function App() {
   return (
     <>
-      {/* Animated gradient background */}
-      <div className="bg-animation" aria-hidden="true">
-        <span className="bg-orb bg-orb-3" />
-        <span className="bg-orb bg-orb-4" />
-        <span className="bg-orb bg-orb-5" />
+      <div className="bg-orbs" aria-hidden="true">
+        <span className="orb orb-1" />
+        <span className="orb orb-2" />
       </div>
-
       <Navbar />
-
       <main>
         <Hero />
         <About />
@@ -29,7 +25,6 @@ export default function Home() {
         <Testimonials />
         <Contact />
       </main>
-
       <Footer />
     </>
   );
